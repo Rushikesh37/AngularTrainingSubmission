@@ -22,7 +22,7 @@ export class UserComponent implements OnInit{
   count:number=0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
+ 
 
   constructor(private formbuilder:FormBuilder,private bookapi:BookapiService,private requestapi:UserServiceService) { }
 
@@ -78,6 +78,7 @@ export class UserComponent implements OnInit{
        .subscribe({
          next:(res)=>{
            alert("send request successfully")
+           
          }
        })
      }
@@ -85,6 +86,7 @@ export class UserComponent implements OnInit{
    }
 
   requestBook(data:any){
+    
     this.requestForm.controls['id'].setValue(data.id);
     this.requestForm.controls['bookName'].setValue(data.bookName);
     this.requestForm.controls['category'].setValue(data.category);

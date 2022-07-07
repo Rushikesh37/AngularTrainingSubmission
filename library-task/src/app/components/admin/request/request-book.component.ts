@@ -14,16 +14,23 @@ export class RequestBookComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   actionbtn: string = "Request Lists";
 
+  action='done'
+  color='success'
+
+
+
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['id', 'bookName', 'category', 'authorName','action'];
+  displayedColumns: string[] = [ 'bookName', 'category', 'authorName','action'];
 
   constructor(private bookapi: BookapiService) { }
 
   ngOnInit(): void {
 
     this.getAllRequests();
+
+    
   }
 
   applyFilter(event: Event) {
@@ -57,6 +64,12 @@ export class RequestBookComponent implements OnInit {
         }
 
       })
+  }
+
+  accept(){
+    this.action='check_box';
+    this.color='warn'
+    alert("book accepted")
   }
 
 

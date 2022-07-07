@@ -20,7 +20,7 @@ export class BookapiService {
 
   putBookData(data:any,id:number){
 
-    return this.http.put<any>(" http://localhost:3000/booklist/" +id,data)
+    return this.http.put<any>(" http://localhost:3000/booklist/"+id,data);
 
 
 }

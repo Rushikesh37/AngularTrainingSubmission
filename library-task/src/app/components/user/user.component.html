@@ -1,12 +1,11 @@
-<p>user works!</p>
-
+<app-navbar></app-navbar>
 <h1>List Of Books</h1>
 
 <div class="container">
     <div style="margin-top: 10px;">
       <form [formGroup]= "requestForm">
         <mat-form-field appearance="standard">
-            <mat-label>Filter</mat-label>
+            <mat-label>Search here....</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
           </mat-form-field>
           

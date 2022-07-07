@@ -8,7 +8,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { BookapiService } from 'src/app/components/services/bookapi.service';
-import { AdbookdialogComponent } from './adbookdialog/adbookdialog.component';
+import { AdbookdialogComponent } from './add/adbookdialog.component';
 
 
 @Component({
@@ -60,21 +60,15 @@ export class AdminComponent implements OnInit {
         this.dataSource.paginator=this.paginator;
         this.dataSource.sort=this.sort
         console.log(res.length);
-   
       },
       error:(err)=>{
         alert("Error while fetching the data")
       }
     })
-
   }
 
   getRequestLists(){
-
     this.router.navigateByUrl('requestbooks')
-
-
-
   }
 
   editBook(row:any){
@@ -114,13 +108,9 @@ export class AdminComponent implements OnInit {
   // fetching request from book.json
 
   getAllRequests(){
-
-    
-
     this.bookapi.getRequest()
     .subscribe({
       next:(res)=>{
-
         // this.dataSource=new MatTableDataSource(res);
         // this.dataSource.paginator=this.paginator;
         // this.dataSource.sort=this.sort
@@ -130,9 +120,6 @@ export class AdminComponent implements OnInit {
       error:(err)=>{
         alert("Error while fetching the data")
       }
-
     })
   }
-
-
 }

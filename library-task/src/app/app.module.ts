@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AdbookdialogComponent } from './components/admin/adbookdialog/adbookdialog.component';
+import { AdbookdialogComponent } from './components/admin/add/adbookdialog.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './shared/login/login.component';
@@ -24,10 +24,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort'
 
 import {MatBadgeModule} from '@angular/material/badge';
-import { RequestBookComponent } from './components/admin/requestBook/request-book.component';
+import { RequestBookComponent } from './components/admin/request/request-book.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './shared/home/home.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 
 
@@ -45,6 +46,7 @@ import { HomeComponent } from './shared/home/home.component';
     RequestBookComponent,
     NavbarComponent,
     HomeComponent,
+    RegisterComponent,
     
 
   

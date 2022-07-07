@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
 
   openLogin(){
     this.router.navigateByUrl('login')
+    
   
     }
 
