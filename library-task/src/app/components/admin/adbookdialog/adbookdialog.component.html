@@ -1,0 +1,54 @@
+
+<h1 mat-dialog-title>Add Books Form</h1>
+<div mat-dialog-content>
+    <form [formGroup]= "bookForm">
+    <mat-form-field appearance="outline">
+        <mat-label>ID </mat-label>
+        <input matInput formControlName="id" type="number" placeholder="id">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Name of book </mat-label>
+        <input matInput formControlName="bookName" placeholder="bookname">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Category </mat-label>
+        <mat-select formControlName="category" placeholder="Category">
+            <mat-option value="technology">Technology</mat-option>
+            <mat-option value="general">General</mat-option>
+            <mat-option value="story">Story</mat-option>
+        </mat-select>
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Author Name </mat-label>
+        <input matInput formControlName="authorName" placeholder="autorname">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width" appearance="outline">
+        <mat-label>discription</mat-label>
+        <input matInput formControlName="discription" #message maxlength="256" placeholder="Ex. I need help with...">
+        <mat-hint align="start"><strong>write discription</strong> </mat-hint>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline">
+        <mat-label>Quantity</mat-label>
+        <input matInput formControlName="quantity" type="number" placeholder="quantity">
+        <mat-hint>Hint</mat-hint>
+      </mat-form-field>
+    </form>
+</div>
+
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="primary" (click)= "addBook()" mat-dialog-close>{{actionbtn}}</button>
+    <button mat-raised-button color="warn"  mat-dialog-close>Cancel</button>
+</div>
