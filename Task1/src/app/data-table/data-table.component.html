@@ -1,0 +1,63 @@
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="from">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>From</th>
+      <td mat-cell *matCellDef="let row">{{row.from}}</td>
+    </ng-container>
+    <ng-container matColumnDef="to">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>To</th>
+      <td mat-cell *matCellDef="let row">{{row.to}}</td>
+    </ng-container>
+
+    <!-- <mat-form-field appearance="outline">
+
+      <mat-label>Choose Date </mat-label>
+
+      <input formControlName="dateCreated" matInput [matDatepicker]="picker">
+
+      <mat-hint>MM/DD/YYYY</mat-hint>
+
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+
+      <mat-datepicker #picker></mat-datepicker>
+
+  </mat-form-field> -->
+
+    <ng-container matColumnDef="dateCreated">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Date Created</th>
+      <td mat-cell *matCellDef="let row">{{row.dateCreated }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="permanentLink">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Permanent Link</th>
+      <td mat-cell *matCellDef="let row">{{row.permanentLink}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator>
+
+  <div class="example-button-container">
+    <button mat-fab color="accent" style="margin-left: 95%" (click)="openDialog()" aria-label="Example icon button with a bookmark icon">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+  
+  <!-- <button mat-button >Launch dialog</button> -->
+  <!-- <mat-icon aria-hidden="false" style="margin-left: 95%" (click)="openDialog()"aria-label="Example icon button with add icon">+</mat-icon> -->
+</div>
