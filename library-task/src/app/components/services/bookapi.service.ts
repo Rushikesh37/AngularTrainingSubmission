@@ -38,5 +38,16 @@ export class BookapiService {
     return this.http.get<any>(" http://localhost:3000/requestlist")
 
   }
+
+
+  
+  issuedBook(data:any){
+    return this.http.post<any>(" http://localhost:3000/issuedBooks",data)
+  }
+
+
+
+
+
 }
 

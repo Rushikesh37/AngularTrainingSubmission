@@ -5,6 +5,8 @@
 <div class="container">
     <div style="margin-top: 10px;">
 
+        <form [formGroup]= "issuedForm">
+
         <mat-form-field appearance="standard">
             <mat-label>Search here...</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="search by id,name,author" #input>
@@ -40,8 +42,8 @@
             
                 <ng-container matColumnDef="action">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
-                    <td mat-cell *matCellDef="let row">
-                        <button mat-icon-button  color="{{color}}" (click)="accept()" >
+                    <td mat-cell *matCellDef= "let row">
+                        <button mat-icon-button  color="{{color}}" (click)= "accept(row)" >
                             <mat-icon>{{action}}</mat-icon>
                         </button>
 
@@ -63,7 +65,11 @@
 
             <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
         </div>
+        <button mat-icon-button color="primary" (click)= "goBack()">
+            <mat-icon >arrow_back</mat-icon>Go Back
+        </button>
 
+        </form>
     </div>
 </div>
 <router-outlet></router-outlet>

@@ -68,15 +68,20 @@ export class UserComponent implements OnInit{
     }
   }
 
+  myBooks(){
+
+  }
+
 
   // all about  user request operation .......................................
   sendRequest(no:any){
-    if(no>3){
+    if(no>2){
     //  alert("You cross the limit");
      this.toast.error({detail:"Limit Exceds", summary:"Max 3 Book available!!!",duration:5000});
     }
     else{
      if(this.requestForm.valid){
+      console.log(this.requestForm.value)
        this.requestapi.requestBook(this.requestForm.value)
        .subscribe({
          next:(res)=>{

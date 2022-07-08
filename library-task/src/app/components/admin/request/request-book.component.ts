@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { BookapiService } from 'src/app/components/services/bookapi.service';
 
 import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-request-book',
@@ -12,7 +14,7 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./request-book.component.css']
 })
 export class RequestBookComponent implements OnInit {
-
+  issuedForm !: FormGroup;
   dataSource!: MatTableDataSource<any>;
   actionbtn: string = "Book Request List";
 
@@ -25,12 +27,26 @@ export class RequestBookComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   displayedColumns: string[] = [ 'bookName', 'category', 'authorName','action'];
+  // dataSources!: MatTableDataSource<any>;
 
-  constructor(private bookapi: BookapiService,private toast :NgToastService) { }
+  constructor(private bookapi: BookapiService,private toast :NgToastService,private router:Router,private formbuilder:FormBuilder) { }
 
   ngOnInit(): void {
 
+
+    this.issuedForm=this.formbuilder.group({
+
+      // id:['',Validators.required],
+      bookName:['',Validators.required],
+      category:['',Validators.required],
+      authorName:['',Validators.required],
+      // discription:['',Validators.required],
+      // quantity:['',Validators.required]
+    })
+
     this.getAllRequests();
+
+    
 
     
   }
@@ -44,8 +60,14 @@ export class RequestBookComponent implements OnInit {
     }
 
   }
+ 
+   
+  //------------------------------- back button--------------------------------
+   goBack(){
+    this.router.navigateByUrl('admin')
+   }
 
-
+  //  -------------------------------------------------
 
   getAllRequests() {
 
@@ -69,10 +91,22 @@ export class RequestBookComponent implements OnInit {
       })
   }
 
-  accept(){
+  accept(data:any){
+
+    // this.issuedForm.controls['id'].setValue(data.id);
+    this.issuedForm.controls['bookName'].setValue(data.bookName);
+    this.issuedForm.controls['category'].setValue(data.category);
+    this.issuedForm.controls['authorName'].setValue(data.authorName);
+    // this.issuedForm.controls['discription'].setValue(data.discription);
+    // this.issuedForm.controls['quantity'].setValue(data.quantity);
+   
+
+     console.log(data);
+
+    
     this.action='check_box';
     this.color='warn'
-    // alert("Book Accepted")
+    // alert("Book Accepted")  
     this.toast.success({detail:"Request Book Accepted!",duration:5000});
   }
 

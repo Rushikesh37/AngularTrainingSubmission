@@ -23,3 +23,9 @@ table {
     margin-top: 10px;
 
   }
+
+  mat-icon{
+
+    size: 100px;
+    
+  }
