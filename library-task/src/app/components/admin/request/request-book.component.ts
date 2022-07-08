@@ -92,11 +92,13 @@ export class RequestBookComponent implements OnInit {
   }
 
   accept(data:any){
+  console.log(this.issuedForm.value);
+    this.bookapi.issuedBook(this.issuedForm.value)
 
     // this.issuedForm.controls['id'].setValue(data.id);
-    this.issuedForm.controls['bookName'].setValue(data.bookName);
-    this.issuedForm.controls['category'].setValue(data.category);
-    this.issuedForm.controls['authorName'].setValue(data.authorName);
+    // this.issuedForm.controls['bookName'].setValue(data.bookName);
+    // this.issuedForm.controls['category'].setValue(data.category);
+    // this.issuedForm.controls['authorName'].setValue(data.authorName);
     // this.issuedForm.controls['discription'].setValue(data.discription);
     // this.issuedForm.controls['quantity'].setValue(data.quantity);
    

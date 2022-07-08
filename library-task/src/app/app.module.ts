@@ -31,6 +31,7 @@ import { HomeComponent } from './shared/home/home.component';
 import { RegisterComponent } from './shared/register/register.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgToastModule } from "ng-angular-popup";
+import { MyBooksComponent } from './components/user/my-books/my-books.component';
 
 
 
@@ -49,6 +50,7 @@ import { NgToastModule } from "ng-angular-popup";
     NavbarComponent,
     HomeComponent,
     RegisterComponent,
+    MyBooksComponent,
   ],
   imports: [
     BrowserModule,

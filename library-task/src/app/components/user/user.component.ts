@@ -7,6 +7,8 @@ import {MatTableDataSource} from '@angular/material/table';
 import { UserServiceService } from 'src/app/components/services/user-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
+import { MatDialog } from '@angular/material/dialog';
+import { MyBooksComponent } from './my-books/my-books.component';
 
 @Component({
   selector: 'app-user',
@@ -25,7 +27,7 @@ export class UserComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
  
 
-  constructor(private formbuilder:FormBuilder,private toast :NgToastService,private bookapi:BookapiService,private requestapi:UserServiceService) { }
+  constructor(public dialog: MatDialog,private formbuilder:FormBuilder,private toast :NgToastService,private bookapi:BookapiService,private requestapi:UserServiceService) { }
 
   ngOnInit(): void {
 
@@ -69,6 +71,10 @@ export class UserComponent implements OnInit{
   }
 
   myBooks(){
+
+    this.dialog.open(MyBooksComponent);
+
+    
 
   }
 

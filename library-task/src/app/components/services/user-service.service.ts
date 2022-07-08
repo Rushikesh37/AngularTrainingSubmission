@@ -12,4 +12,11 @@ export class UserServiceService {
   requestBook(data:any){
     return this.http.post<any>(" http://localhost:3000/requestlist",data)
   }
+
+
+  getIssuedBook(){
+
+    return this.http.get<any>(" http://localhost:3000/issuedBooks")
+
+  }
 }
