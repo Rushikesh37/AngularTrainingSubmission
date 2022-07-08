@@ -1,0 +1,20 @@
+   ********* SQL Pre-Assesment Answer*************************
+
+a.  SELECT * FROM (EmployeeDetail) WHERE FirstName like '[^a-p]%'
+b.  SELECT * FROM (EmployeeDetail) WHERE Gender like '__le' --there are two "_"
+c.  SELECT * FROM (EmployeeDetail) WHERE FirstName like 'A____' --there are four "_"
+d.  SELECT DISTINCT(Department) FROM (EmployeeDetail);
+e.  SELECT MAX(Salary),MIN(Salary) FROM [EmployeeDetail];
+f.  SELECT CONVERT(VARCHAR(20),JoiningDate,111) FROM (EmployeeDetail);
+g.  SELECT CONVERT(VARCHAR(20),JoiningDate,108) FROM (EmployeeDetail);
+h.  SELECT TOP 1 * FROM (EmployeeDetail);
+i.  SELECT * FROM (EmployeeDetail) WHERE FirstName IN ('Vikas','Ashish','Nikhil');
+j.  SELECT * FROM (EmployeeDetail) WHERE FirstName NOT IN ('Vikas','Ashish','Nikhil');
+k.  SELECT RTRIM(FirstName) AS (FirstName) FROM (EmployeeDetail);
+l.  -------
+m.  SELECT 'Hello ' + FirstName FROM [EmployeeDetail];
+n.  SELECT MAX(Salary) from Employee WHERE salary < (SELECT MAX(Salary) from Employee);
+
+
+
+*****************************************************************************************
