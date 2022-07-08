@@ -6,6 +6,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { UserServiceService } from 'src/app/components/services/user-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-user',
@@ -24,7 +25,7 @@ export class UserComponent implements OnInit{
   @ViewChild(MatSort) sort!: MatSort;
  
 
-  constructor(private formbuilder:FormBuilder,private bookapi:BookapiService,private requestapi:UserServiceService) { }
+  constructor(private formbuilder:FormBuilder,private toast :NgToastService,private bookapi:BookapiService,private requestapi:UserServiceService) { }
 
   ngOnInit(): void {
 
@@ -51,7 +52,8 @@ export class UserComponent implements OnInit{
         this.dataSource.sort=this.sort;
       },
       error:(err)=>{
-        alert("Error while fetching the data")
+        // alert("Error while fetching the data")
+        this.toast.error({detail:"Error while fetching the data", summary:"something went wrong",duration:5000});
       }
     })
 
@@ -70,14 +72,16 @@ export class UserComponent implements OnInit{
   // all about  user request operation .......................................
   sendRequest(no:any){
     if(no>3){
-     alert("You cross the limit");
+    //  alert("You cross the limit");
+     this.toast.error({detail:"Limit Exceds", summary:"Max 3 Book available!!!",duration:5000});
     }
     else{
      if(this.requestForm.valid){
        this.requestapi.requestBook(this.requestForm.value)
        .subscribe({
          next:(res)=>{
-           alert("send request successfully")
+          //  alert("Request send successfully")
+           this.toast.success({detail:"Request send successfully", summary:"Thank You",duration:5000});
            
          }
        })

@@ -29,6 +29,8 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './shared/home/home.component';
 import { RegisterComponent } from './shared/register/register.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { NgToastModule } from "ng-angular-popup";
 
 
 
@@ -47,12 +49,6 @@ import { RegisterComponent } from './shared/register/register.component';
     NavbarComponent,
     HomeComponent,
     RegisterComponent,
-    
-
-  
-    
-    
-   
   ],
   imports: [
     BrowserModule,
@@ -74,7 +70,10 @@ import { RegisterComponent } from './shared/register/register.component';
     MatSortModule,
     MatIconModule,
     MatBadgeModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCheckboxModule,
+    NgToastModule
+    
     
     
   

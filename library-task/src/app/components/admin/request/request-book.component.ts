@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { BookapiService } from 'src/app/components/services/bookapi.service';
 
+import { NgToastService } from 'ng-angular-popup';
+
 @Component({
   selector: 'app-request-book',
   templateUrl: './request-book.component.html',
@@ -12,7 +14,7 @@ import { BookapiService } from 'src/app/components/services/bookapi.service';
 export class RequestBookComponent implements OnInit {
 
   dataSource!: MatTableDataSource<any>;
-  actionbtn: string = "Request Lists";
+  actionbtn: string = "Book Request List";
 
   action='done'
   color='success'
@@ -24,7 +26,7 @@ export class RequestBookComponent implements OnInit {
 
   displayedColumns: string[] = [ 'bookName', 'category', 'authorName','action'];
 
-  constructor(private bookapi: BookapiService) { }
+  constructor(private bookapi: BookapiService,private toast :NgToastService) { }
 
   ngOnInit(): void {
 
@@ -47,7 +49,7 @@ export class RequestBookComponent implements OnInit {
 
   getAllRequests() {
 
-    this.actionbtn = "Request List"
+    // this.actionbtn = "Request List"
 
     this.bookapi.getRequest()
       .subscribe({
@@ -60,7 +62,8 @@ export class RequestBookComponent implements OnInit {
           // this.no = res.length;
         },
         error: (err) => {
-          alert("Error while fetching the data")
+          // alert("Error while fetching the data")
+          this.toast.success({detail:"Error while fetching the dat",duration:5000});
         }
 
       })
@@ -69,7 +72,8 @@ export class RequestBookComponent implements OnInit {
   accept(){
     this.action='check_box';
     this.color='warn'
-    alert("book accepted")
+    // alert("Book Accepted")
+    this.toast.success({detail:"Request Book Accepted!",duration:5000});
   }
 
 

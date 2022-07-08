@@ -1,1 +1,57 @@
-<p>register works!</p>
+
+<mat-card class="outer-box">
+    <mat-card-header>
+      <mat-card-title>
+        <mat-icon>person_add</mat-icon>
+        Register Here!!!
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="Enter First Name">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Enter Last Name">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Email Id</mat-label>
+          <input type="email" matInput placeholder="">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input  type="password" matInput placeholder="Last Name">
+          <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+      </p>
+      <p class="terms">
+        <mat-checkbox>**Terms & conditions apply</mat-checkbox>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary">Register</button>
+      <a routerLink="">Already have an account?</a>
+    </mat-card-actions>
+  </mat-card>
+  
+  

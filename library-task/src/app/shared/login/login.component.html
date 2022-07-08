@@ -14,8 +14,8 @@
             </td>
           </tr>
           <tr>
-          <td><mat-form-field class="example-full-width">
-            <input matInput placeholder="Password" [(ngModel)]="password"type="password" name="password" required>
+          <td><mat-form-field class="example-full-width" style="margin-top: 25px;">
+            <input matInput placeholder="Password" [(ngModel)]="password" type="password" name="password" required  >
           </mat-form-field></td>
         </tr></table>
       </form>
@@ -23,8 +23,15 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button (click)="login()" color="primary">Login</button>
+
+      <a style="margin-left: 10px" routerLink="">forgot password?</a>
     </mat-card-actions>
-  </mat-card>
+
+
+    <!-- <mat-card-actions>
+      <a routerLink="">forgot password?</a>
+    </mat-card-actions>
+  </mat-card> -->
   <!-- <router-outlet></router-outlet> -->
   
 

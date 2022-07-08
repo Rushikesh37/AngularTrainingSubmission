@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { Router } from '@angular/router';
 import { BookapiService } from 'src/app/components/services/bookapi.service';
 import { AdbookdialogComponent } from './add/adbookdialog.component';
+import { NgToastService } from 'ng-angular-popup';
 
 
 @Component({
@@ -25,7 +26,7 @@ export class AdminComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog,private bookapi:BookapiService,private router:Router) { }
+  constructor(public dialog: MatDialog,private bookapi:BookapiService,private router:Router,private toast :NgToastService) { }
 
 
   openDialog() {
@@ -62,7 +63,9 @@ export class AdminComponent implements OnInit {
         console.log(res.length);
       },
       error:(err)=>{
-        alert("Error while fetching the data")
+        // alert("Error while fetching the data")
+        this.toast.error({detail:"Error While fetching the data!", summary:"something went wrong",duration:5000});
+
       }
     })
   }
@@ -85,11 +88,13 @@ export class AdminComponent implements OnInit {
   deleteBook(id:number){
     this.bookapi.deleteBook(id).subscribe({
       next:(res)=>{
-        alert("Book deleted Successfully")
+        // alert("Book deleted Successfully")
+        this.toast.success({detail:"Book deleted Successfully", summary:"one book deleted",duration:5000});
         this.getAllBooks();
       },
       error:()=>{
-        alert("Error While deleting the record!")
+        // alert("Error While deleting the book!")
+        this.toast.error({detail:"Error While deleting the book!", summary:"something went wrong",duration:5000});
       }
     })
 
@@ -118,7 +123,8 @@ export class AdminComponent implements OnInit {
         this.no = res.length;
       },
       error:(err)=>{
-        alert("Error while fetching the data")
+        // alert("Error while fetching the data");
+        this.toast.error({detail:"Error While fetching the data!", summary:"something went wrong",duration:5000});
       }
     })
   }

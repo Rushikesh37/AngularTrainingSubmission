@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { LoginComponent } from '../login/login.component';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-navbar',
@@ -16,8 +17,13 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  openDialog(){
+  openLoginDialog(){
     this.dialog.open(LoginComponent)
+  }
+
+
+  openRegDialog(){
+    this.dialog.open(RegisterComponent);
   }
 
   openLogin(){

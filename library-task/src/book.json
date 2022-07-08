@@ -1,30 +1,6 @@
 {
   "booklist": [
     {
-      "bookName": "soft Engg",
-      "category": "general",
-      "authorName": "sahg",
-      "discription": "fhfhg",
-      "quantity": 4,
-      "id": 1
-    },
-    {
-      "bookName": "ttjy",
-      "category": "general",
-      "authorName": "ykjyk",
-      "discription": "ukuk",
-      "quantity": 4,
-      "id": 2
-    },
-    {
-      "bookName": "fdsfsd",
-      "category": "general",
-      "authorName": "thjt",
-      "discription": "jyhkj",
-      "quantity": 4,
-      "id": 3
-    },
-    {
       "bookName": "History",
       "category": "technology",
       "authorName": "rg",
@@ -55,6 +31,14 @@
       "discription": "mjh",
       "quantity": 8,
       "id": 7
+    },
+    {
+      "bookName": "superwomen",
+      "category": "general",
+      "authorName": "lata",
+      "discription": "djejdje",
+      "quantity": 4,
+      "id": 8
     }
   ],
   "requestlist": [
@@ -69,7 +53,7 @@
     {
       "id": 2,
       "bookName": "ttjy",
-      "category": "general",
+      "category": "story",
       "authorName": "ykjyk",
       "discription": "ukuk",
       "quantity": 4
@@ -89,6 +73,38 @@
       "authorName": "rg",
       "discription": "tht",
       "quantity": 5
+    },
+    {
+      "id": 5,
+      "bookName": "rgr",
+      "category": "general",
+      "authorName": "tht",
+      "discription": "yjj",
+      "quantity": 7
+    },
+    {
+      "id": 6,
+      "bookName": "rgrgh",
+      "category": "story",
+      "authorName": "ryjyj",
+      "discription": "kuk",
+      "quantity": 7
+    },
+    {
+      "id": 8,
+      "bookName": "superwomen",
+      "category": "general",
+      "authorName": "lata",
+      "discription": "djejdje",
+      "quantity": 4
+    },
+    {
+      "id": 7,
+      "bookName": "cvbf",
+      "category": "story",
+      "authorName": "gng",
+      "discription": "mjh",
+      "quantity": 8
     }
   ]
 }

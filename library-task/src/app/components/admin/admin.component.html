@@ -1,17 +1,34 @@
 
 <app-navbar></app-navbar>
-<button mat-raised-button color="primary" (click)="openDialog()">Add Books</button>
+<span>
+<!-- 
+<button mat-raised-button color="primary" (click)="openDialog()">Add Books</button> -->
+<button mat-icon-button color="primary"  matBadgePosition="after" matBadgeColor="warn" (click)="openDialog()">
+    <mat-icon >book</mat-icon>Add Book 
+</button>
+
+</span>
+
+<span>
+
+    <button mat-icon-button color="primary" matBadge="{{no}}" matBadgePosition="before" matBadgeColor="warn" (click)= "getRequestLists()">
+        <mat-icon >mark_chat_unread</mat-icon> Request Books
+    </button>
+</span>
 
 <span> 
-    <button mat-raised-button color="primary" matBadge="{{no}}" matBadgePosition="before" matBadgeColor="warn" (click)= "getRequestLists()">
-        Request Books
+    <button mat-icon-button color="primary" matBadge="{{no}}" matBadgePosition="after" matBadgeColor="warn" (click)= "getRequestLists()">
+        <mat-icon >notifications_active</mat-icon>Notification 
     </button>
+    <!-- <button mat-icon-button color="primary" matBadge="{{no}}" matBadgePosition="before" matBadgeColor="warn" (click)= "getRequestLists()">
+        Request Books
+    </button> -->
 </span>
 
 
 <!-- Book list Form....................................... -->
 
-<h1>{{actionbtn}}</h1>
+<h1><b>{{actionbtn}}</b></h1>
 
 <div class="container">
     <div style="margin-top: 10px;">

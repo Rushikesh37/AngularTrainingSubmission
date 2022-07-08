@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private router: Router,private matdialog:MatDialog) { }
+  constructor(private router: Router,private matdialog:MatDialog,private toast :NgToastService) { }
 
  username: string | undefined;
  password: string | undefined;
@@ -20,10 +21,13 @@ export class LoginComponent implements OnInit {
   login() : void {
     if(this.username == 'user' && this.password == 'user'){
      this.router.navigate(["user"]);
+     this.toast.success({detail:"login success", summary:"welcome user!!",duration:5000});
     }else if (this.username=='admin' && this.password=='admin'){
       this.router.navigate(["admin"]);
+      this.toast.success({detail:"login success", summary:"welcome admin",duration:5000});
     }else{
-      alert("Invalid credentials");
+      // alert("Invalid credentials");
+      this.toast.error({detail:"Invalid credential", summary:"username or password incorrect!",duration:5000});
     }
 
     this.matdialog.closeAll();
