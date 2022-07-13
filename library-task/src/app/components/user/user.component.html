@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
 
-<button style="margin-left: 50px" mat-icon-button color="primary"  matBadgePosition="after" matBadgeColor="warn" (click)="myBooks()">
+<button class="mybook"  mat-icon-button color="primary" matBadge="{{no}}"   matBadgePosition="after" matBadgeColor="warn" (click)="myBooks()">
   <mat-icon  >photo_album</mat-icon>My Books 
 </button>
+
+
 <h1><b>List Of Books</b></h1>
 
 
@@ -59,9 +61,9 @@
                        <mat-icon>send</mat-icon> 
                     </button>
                 
-                    <button mat-icon-button color="warn">
+                    <!-- <button mat-icon-button color="warn">
                         <mat-icon >cancel</mat-icon> 
-                     </button>
+                     </button> -->
                 </td>
 
               </ng-container>

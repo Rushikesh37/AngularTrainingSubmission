@@ -7,6 +7,7 @@ import { BookapiService } from 'src/app/components/services/bookapi.service';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-request-book',
@@ -18,65 +19,52 @@ export class RequestBookComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   actionbtn: string = "Book Request List";
 
-  action='done'
-  color='success'
+  action = 'done'
+  color = 'success'
 
 
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = [ 'bookName', 'category', 'authorName','action'];
+  displayedColumns: string[] = ['bookName', 'category', 'authorName', 'action'];
   // dataSources!: MatTableDataSource<any>;
 
-  constructor(private bookapi: BookapiService,private toast :NgToastService,private router:Router,private formbuilder:FormBuilder) { }
+  constructor(private bookapi: BookapiService, private toast: NgToastService, private router: Router, private formbuilder: FormBuilder) { }
 
   ngOnInit(): void {
-
-
-    this.issuedForm=this.formbuilder.group({
-
+    this.issuedForm = this.formbuilder.group({
       // id:['',Validators.required],
-      bookName:['',Validators.required],
-      category:['',Validators.required],
-      authorName:['',Validators.required],
+      bookName: ['', Validators.required],
+      category: ['', Validators.required],
+      authorName: ['', Validators.required],
       // discription:['',Validators.required],
       // quantity:['',Validators.required]
     })
-
     this.getAllRequests();
-
-    
-
-    
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
-
   }
- 
-   
+
+
   //------------------------------- back button--------------------------------
-   goBack(){
+  goBack() {
     this.router.navigateByUrl('admin')
-   }
+  }
 
   //  -------------------------------------------------
 
   getAllRequests() {
-
     // this.actionbtn = "Request List"
-
     this.bookapi.getRequest()
       .subscribe({
         next: (res) => {
-
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort
@@ -85,33 +73,58 @@ export class RequestBookComponent implements OnInit {
         },
         error: (err) => {
           // alert("Error while fetching the data")
-          this.toast.success({detail:"Error while fetching the dat",duration:5000});
+          this.toast.success({ detail: "Error while fetching the dat", duration: 5000 });
         }
-
       })
   }
 
-  accept(data:any){
-  console.log(this.issuedForm.value);
-    this.bookapi.issuedBook(this.issuedForm.value)
-
+  accept(data: any) {
+    // console.log(this.issuedForm.value);
     // this.issuedForm.controls['id'].setValue(data.id);
-    // this.issuedForm.controls['bookName'].setValue(data.bookName);
-    // this.issuedForm.controls['category'].setValue(data.category);
-    // this.issuedForm.controls['authorName'].setValue(data.authorName);
+    this.issuedForm.controls['bookName'].setValue(data.bookName);
+    this.issuedForm.controls['category'].setValue(data.category);
+    this.issuedForm.controls['authorName'].setValue(data.authorName);
     // this.issuedForm.controls['discription'].setValue(data.discription);
     // this.issuedForm.controls['quantity'].setValue(data.quantity);
-   
-
-     console.log(data);
-
-    
-    this.action='check_box';
-    this.color='warn'
-    // alert("Book Accepted")  
-    this.toast.success({detail:"Request Book Accepted!",duration:5000});
+    Swal.fire({
+      title: 'Are you want to Issued Book?',
+      text: 'Select Your Choice',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Issued',
+      cancelButtonText: 'Reject'
+    }).then((result) => {
+      if (result.value) {
+        this.bookapi.issuedBook(this.issuedForm.value)
+          .subscribe({
+            next: (res) => {
+              this.action = 'check_box';
+              this.color = 'warn'
+              Swal.fire('Thank you...', 'Booked Issued succesfully!!!', 'success');
+            }
+          })
+      } else {
+        Swal.fire('Thank You...', 'Booked Request Rejected succesfully!!!', 'error')
+      }
+    })
+    //  console.log(data);
   }
-
-
-
 }
+// *********************************** using toaster service ***********************************
+    // this.bookapi.issuedBook(this.issuedForm.value)
+    // .subscribe({next:(res)=>{
+    //   this.action='check_box';
+    //   this.color='warn'
+
+    // alert("Book Accepted")   ...........this is simple alert..............
+
+
+    // this.toast.success({detail:"Request Book Accepted!",duration:5000}); ............alert using toast service.......................
+
+    // }
+
+    // })
+// **************************************************************************************************
+
+
+

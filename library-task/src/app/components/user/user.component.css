@@ -9,11 +9,11 @@ table {
   
   td, th {
     font-size: 16px;
-    width: 25%;
+    width: 5%;
   }
 
   .container{
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
   }
 
@@ -29,3 +29,9 @@ table {
     size: 100px;
     
   }
+
+  .mybook{
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+ 

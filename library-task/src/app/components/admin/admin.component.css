@@ -9,7 +9,7 @@ table {
   
   td, th {
     font-size: 16px;
-    width: 0%;
+    width: 10%;
   }
 
   .container{
@@ -27,7 +27,7 @@ table {
   }
 
   button{
-    margin-top: 50px;
+    margin-top: 5px;
   }
 
  
