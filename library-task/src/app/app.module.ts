@@ -14,7 +14,7 @@ import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
-
+import { MatGridListModule } from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClientModule } from  '@angular/common/http';
@@ -22,6 +22,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 
 import {MatSortModule} from '@angular/material/sort'
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import {MatBadgeModule} from '@angular/material/badge';
 import { RequestBookComponent } from './components/admin/request/request-book.component';
@@ -74,7 +75,9 @@ import { MyBooksComponent } from './components/user/my-books/my-books.component'
     MatBadgeModule,
     MatToolbarModule,
     MatCheckboxModule,
-    NgToastModule
+    NgToastModule,
+    MatGridListModule,
+    MatAutocompleteModule
     
     
     

@@ -51,6 +51,7 @@ export class AdbookdialogComponent implements OnInit {
               // alert("Book added successfully");
               this.toast.success({detail:"Book added successfully", summary:"one book added",duration:5000});
               this.dialogref.close('save');
+              window.location.reload();
             },
             error: () => {
               // alert("Error while adding book")

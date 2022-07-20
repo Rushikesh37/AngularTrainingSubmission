@@ -105,5 +105,8 @@
       }
     }
   },
-  "defaultProject": "library-task"
+  "defaultProject": "library-task",
+  "cli": {
+    "analytics": "af949cde-1b65-45d6-9530-0a629dca4a01"
+  }
 }

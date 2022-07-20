@@ -80,6 +80,7 @@ export class AdminComponent implements OnInit {
       data:row
     }).afterClosed().subscribe(val=>{
       if(val==='update'){
+        window.location.reload()
         this.getAllBooks();
       }
     })
