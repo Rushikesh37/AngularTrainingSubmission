@@ -1,0 +1,46 @@
+
+<div class="container">
+    <div class="row">
+     
+          <mat-card class="my-card">
+             <mat-card-title>Create Account</mat-card-title>
+             <p style="text-align: center;">Its Quick And Easy</p>
+               <mat-card-content>
+                  <form class="my-form">
+                    <mat-form-field appearance="standard">
+                        <mat-label>First Name</mat-label>
+                        <input  matInput  placeholder="Firstname" name="firstname" required="firstname">
+                     </mat-form-field>
+                    
+                     <mat-form-field appearance="standard">
+                        <mat-label>Last Name</mat-label>
+                        <input  matInput  placeholder="Lastname" name="lastname" required="lastname">
+                     </mat-form-field>
+                     <br>
+                     <mat-form-field appearance="standard">
+                        <mat-label>Email Id</mat-label>
+                        <input  matInput  placeholder="email" name="email" required="email">
+                     </mat-form-field>
+                     <br>
+                     <mat-form-field appearance="standard">
+                        <mat-label>Mobile No</mat-label>
+                        <input  matInput  placeholder="Number" name="number" required="number">
+                     </mat-form-field>
+                     <mat-radio-group aria-label="Select an option" >
+                        <mat-radio-button value="male">Male&nbsp;&nbsp;</mat-radio-button>
+                        <mat-radio-button value="female">Female &nbsp;&nbsp;</mat-radio-button>
+                        <mat-radio-button value="other">Other</mat-radio-button>
+                      </mat-radio-group>
+                      
+                  </form>
+               </mat-card-content>
+               <button mat-raised-button routerLink=''(click)= "register()" color="primary">Register</button>
+               <span><a>&nbsp; Already have an account?</a></span>
+            
+            </mat-card>
+       </div>
+    </div>
+    
+ 
+ 
+ 

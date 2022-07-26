@@ -31,8 +31,7 @@ export class AuthService {
   authenticateUser() {
     this.res=(this.user.find((x:any)=>{
       return x.userName==this.data.userName && x.password==this.data.password
-    }))
-    
+    })) 
   }
   navigate() {
     if(this.res){

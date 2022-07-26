@@ -1,0 +1,52 @@
+<h1><b>{{actionbtn}}</b></h1>
+
+<div class="container">
+    <div style="margin-top: 10px;">
+
+        <form [formGroup]="myBookForm">
+            <!-- <mat-form-field appearance="standard">
+            <mat-label>Search here...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="search by id,name,author" #input>
+        </mat-form-field> -->
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+                    <ng-container matColumnDef="bookName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> BooKName </th>
+                        <td mat-cell *matCellDef="let row"> {{row.bookName}} </td>
+                    </ng-container>
+
+                    <!-- category Column -->
+                    <ng-container matColumnDef="category">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+                        <td mat-cell *matCellDef="let row"> {{row.category}} </td>
+                    </ng-container>
+
+                    <!-- authorName Column -->
+                    <ng-container matColumnDef="authorName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Authorname </th>
+                        <td mat-cell *matCellDef="let row"> {{row.authorName}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Return Date </th>
+                        <td mat-cell *matCellDef="let row">{{row.returnDate}}</td>
+                    </ng-container>
+
+                    <!-- {{this.dateReminder(row.returnDate)}} -->
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button color="primary">
+                                Return<mat-icon>send_time_extension</mat-icon>
+                            </button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator> -->
+            </div>
+        </form>
+
+    </div>
+</div>

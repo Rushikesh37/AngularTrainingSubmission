@@ -1,0 +1,64 @@
+ <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon >menu</mat-icon>
+      </button>
+  
+      <h1>House Of Book</h1>
+      <span class="example-spacer"></span>
+        <a mat-button ><mat-icon matBadge="15" matBadgeColor="warn">notifications</mat-icon></a>
+        <a mat-button ><mat-icon>logout</mat-icon></a>
+  
+    </mat-toolbar-row>
+   
+  </mat-toolbar>
+ 
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="userdata">
+
+     Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id. </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="mobileNo">
+      <th mat-header-cell *matHeaderCellDef> mobileNo </th>
+      <td mat-cell *matCellDef="let element"> {{element.mobileno}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="emailid">
+      <th mat-header-cell *matHeaderCellDef> emailid </th>
+      <td mat-cell *matCellDef="let element"> {{element.emailid}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+<!-- 
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons 
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div> -->
+
+  
+
+
+
+
+

@@ -1,0 +1,53 @@
+
+.navbar
+{
+    justify-content: flex-end;
+    justify-content: space-between;
+}
+
+.card
+{  padding: 30px; margin: 10px;width:260px ;height: 260px;
+   background-color:#f1f1f1;;
+   
+}
+
+.B
+{
+  margin-top: 10%;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    padding: 10px;
+    background-color: white;
+    
+    justify-content: space-around;
+}
+
+.c
+{
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    margin-top: 30px;
+    margin-left: 37%;
+}
+
+
+P
+{
+    color: black;
+}
+
+mat-icon{
+  color: black;
+}
+
+button{
+  background-color:#c2185b;
+}
+
+
+  
+ 
+
+
+
+

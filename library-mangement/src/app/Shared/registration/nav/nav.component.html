@@ -1,0 +1,49 @@
+<!-- 
+
+  <p>
+    <mat-toolbar>
+     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>home</mat-icon>
+    </button>
+    <span>My Library</span>
+    <span class="example-spacer"></span>
+    <div class="tag">
+   <span><mat-icon>input</mat-icon> Login</span> 
+    <!-- <a href=""> Login</a> -->
+    <!-- <a href=""><mat-icon>touch_app</mat-icon>Signup</a> -->
+    <!-- <a href=""> </a> -->
+    <!-- <a href="">Aboutus </a> -->
+<!-- </div>
+  </mat-toolbar>
+  </p> -->
+  <nav>
+  <mat-toolbar color="primary">
+    <mat-icon>home</mat-icon>
+    <a  routerLink="home" style="color: white;">Home</a>
+    <!-- <a mat-button="home" style="color:white"> &nbsp;&nbsp;Home  </a>  -->
+     <div class="spacer"></div>
+  
+ 
+  <a mat-button (click)="openReg()"><mat-icon>touch_app</mat-icon> Register</a>
+
+  <!-- <a mat-button (click)="openLogin()"><mat-icon>input</mat-icon> Login</a> -->
+  
+  <a mat-button [matMenuTriggerFor]="loginMenu"><mat-icon>input</mat-icon>Login</a>
+  
+   
+    <a mat-button routerLink="contactus"> <mat-icon>call</mat-icon>Contact</a>
+    
+    <a mat-button routerLink=""><mat-icon>info</mat-icon>About-Us</a>
+  </mat-toolbar>
+
+  <mat-menu #loginMenu="matMenu" yPosition="below">
+
+    <a mat-menu-item style="color: whitesmoke;" (click)="openLogin()">Admin LogIn</a>
+  
+    <a mat-menu-item style="color:whitesmoke;" (click)="openLogin()">User LogIn</a>
+  
+   </mat-menu>
+
+  </nav>
+  <router-outlet></router-outlet>
+  

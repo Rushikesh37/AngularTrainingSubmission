@@ -15,22 +15,6 @@
   ],
   "booklist": [
     {
-      "bookName": "Ramayana",
-      "category": "general",
-      "authorName": "History",
-      "discription": "Ramayana",
-      "quantity": 10,
-      "id": 2
-    },
-    {
-      "bookName": "Mahabharat",
-      "category": "story",
-      "authorName": "Krishna",
-      "discription": "history",
-      "quantity": 5,
-      "id": 3
-    },
-    {
       "bookName": "Harry Potter",
       "category": "story",
       "authorName": "harry",
@@ -40,14 +24,6 @@
     }
   ],
   "requestlist": [
-    {
-      "id": 1,
-      "bookName": "harry potter",
-      "category": "story",
-      "authorName": "harry",
-      "discription": "movie story",
-      "quantity": 4
-    },
     {
       "id": 2,
       "bookName": "Ramayana",
@@ -85,7 +61,12 @@
       "category": "story",
       "authorName": "harry",
       "id": 2
+    },
+    {
+      "bookName": "Ramayana",
+      "category": "general",
+      "authorName": "History",
+      "id": 3
     }
-   
   ]
 }

@@ -1,0 +1,25 @@
+{
+    "userlist":[{
+        "id":1,
+        "name":"Rushikesh",
+        "emailid":"rushikeshy777@gmail.com",
+        "mobileno":8208773452,
+        "address":"Bangalore"
+    },
+    {
+        "id":1,
+        "name":"Rushikesh",
+        "emailid":"rushikeshy777@gmail.com",
+        "mobileno":8208773452,
+        "address":"Bangalore"
+
+    },
+    {
+        "id":1,
+        "name":"Rushikesh",
+        "emailid":"rushikeshy777@gmail.com",
+        "mobileno":8208773452,
+        "address":"Bangalore"
+    }
+]
+}

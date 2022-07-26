@@ -1,0 +1,74 @@
+[
+    {
+        "id":1,
+        "image":"../assets/b1.avif",
+        "name":"sample book",
+        "Quantity":5,
+        "author":"verma",
+        "description":"aejfedjdbit"
+    },
+
+
+    {
+
+        "id":2,
+        "image":"../assets/b3.jpg",
+        "name":"sample book",
+        "Quantity":6,
+        "author":"albert",
+        "description":"fbfmb"
+
+
+
+    },
+
+
+    {
+        "id":3,
+        "image":"../assets/c2.png",
+        "name":"sample book",
+        "Quantity":7,
+        "author":"vishwash",
+        "description":"fbfngn"
+    },
+
+    {
+        "id":4,
+        "image":"../assets/b1.avif",
+        "name":"sample book",
+        "Quantity":"8",
+        "author":"n.k",
+        "description":"gndagb"
+    },
+
+    {
+        "id":5,
+        "image":"../assets/c2.png",
+        "name":"sample book",
+        "Quantity":9,
+        "author":"arihant",
+        "description":"gng"
+    },
+
+
+    {
+        "id":6,
+        "image":"../assets/b3.jpg",
+        "name":"sample book",
+        "Quantity":10,
+        "author":"baheti",
+        "description":"tjtm"
+    },
+
+    {
+        "id":7,
+        "image":"../assets/b1.avif",
+        "name":"sample book",
+        "Quantity":1,
+        "author":"verma",
+        "description":"jatjy"
+    }
+
+
+
+]

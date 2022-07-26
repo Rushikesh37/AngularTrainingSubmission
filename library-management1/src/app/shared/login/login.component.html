@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+
+  <form class="example-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <mat-card-content>
+      <table class="example-full-width" cellspacing="0">
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width">
+              <input matInput type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Email Id"
+                name="email" ngModel required>
+            </mat-form-field>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <mat-form-field class="example-full-width" style="margin-top: 25px;">
+              <input matInput placeholder="Password" type="password" name="password" ngModel required>
+            </mat-form-field>
+          </td>
+        </tr>
+      </table>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button type="submit" color="primary">Login</button>
+      <a style="margin-left: 10px" routerLink="">forgot password?</a>
+    </mat-card-actions>
+  </form>
+  <!-- <mat-card-actions>
+      <a routerLink="">forgot password?</a>
+    </mat-card-actions>
+  </mat-card> -->
+  <!-- <router-outlet></router-outlet> -->

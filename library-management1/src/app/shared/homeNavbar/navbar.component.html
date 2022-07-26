@@ -1,0 +1,24 @@
+
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon routerLink="/home">home</mat-icon>
+    </button>
+    <span> Book House<mat-icon>library_books</mat-icon></span>
+    <span class="example-spacer"></span>
+    <a mat-button routerLink="" (click)= "bookList()"><mat-icon>auto_stories </mat-icon> &nbsp; Explore Books</a>
+    <a mat-button routerLink="" (click)= "openRegDialog()"><mat-icon>person_add</mat-icon>Register</a>
+    <a mat-button routerLink=""(click)= "openLoginDialog()"><mat-icon>login</mat-icon>Login</a>
+    <a mat-button routerLink="contact"><mat-icon>phone</mat-icon>Contact-Us</a>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+
+
+   
+
+
+
+
+ 
+
+
+

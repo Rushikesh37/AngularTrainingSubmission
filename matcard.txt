@@ -1,0 +1,164 @@
+
+<app-nav></app-nav>
+<div class="main-container">
+  <mat-card-content class="row">
+    <mat-card class="col-4 md offset-5">
+    <h2>Search Book </h2>
+  <mat-form-field appearance="fill">
+    <!-- <mat-label>Search By....</mat-label> -->
+    
+    <mat-select  placeholder="Search by..." >
+      
+      <mat-option *ngFor="let book of book" [value]="book.value">
+        {{book.viewValue}}
+  
+      </mat-option>
+     
+    
+    </mat-select>
+  </mat-form-field>
+  <span>&nbsp; &nbsp;<button mat-raised-button color="primary"> Search</button></span>
+  </mat-card>
+  </mat-card-content>
+</div>
+
+
+
+
+<mat-card-content class="row">
+<mat-card class="column">
+    
+
+
+      <mat-card-title>Sample Book</mat-card-title>
+      
+      <img mat-card-lg-image src="../assets/b1.avif" >
+      <mat-card-content>
+        {{longText}}
+      </mat-card-content>
+
+      <button mat-raised-button color="accient">Details </button>
+      <button mat-raised-button color="primary">Request</button>
+    
+    </mat-card>
+
+    <mat-card class="column">
+
+      <mat-card-title>Sample Book</mat-card-title>
+      
+      <img mat-card-lg-image src="../assets/b3.jpg" >
+      <mat-card-content>
+        {{longText}}
+      </mat-card-content>
+      <button mat-raised-button color="accient">Details </button>
+      <button mat-raised-button color="primary">Request</button>
+    </mat-card>
+
+     <mat-card class="column">
+
+      <mat-card-title>Sample Book</mat-card-title>
+      
+      <img mat-card-lg-image src="../assets/b1.avif" >
+      <mat-card-content>
+        {{longText}}
+      </mat-card-content>
+      <button mat-raised-button color="accient">Details </button>
+      <button mat-raised-button color="primary">Request</button>
+    
+    
+  </mat-card>
+
+</mat-card-content>
+
+<mat-card-content class="row">
+    <mat-card class="column">
+        
+          <mat-card-title>Sample Book</mat-card-title>
+          
+          <img mat-card-lg-image src="../assets/c2.png" >
+          <mat-card-content>
+            {{longText}}
+          </mat-card-content>
+          <button mat-raised-button color="accient">Details </button>
+          <button mat-raised-button color="primary">Request</button>
+        
+        </mat-card>
+    
+        <mat-card class="column">
+    
+          <mat-card-title>Sample Book</mat-card-title>
+          
+          <img mat-card-lg-image src="../assets/b1.avif" >
+          <mat-card-content>
+            {{longText}}
+          </mat-card-content>
+          <button mat-raised-button color="accient">Details </button>
+          <button mat-raised-button color="primary">Request</button>
+        </mat-card>
+    
+         <mat-card class="column">
+    
+          <mat-card-title>Sample Book</mat-card-title>
+          
+          <img mat-card-lg-image src="../assets/b3.jpg" >
+          <mat-card-content>
+            {{longText}}
+          </mat-card-content>
+
+          <button mat-raised-button color="accient">Details </button>
+          <button mat-raised-button color="primary">Request</button>
+        
+        
+      </mat-card>
+    
+    </mat-card-content>
+    <mat-card-content class="row">
+        <mat-card class="column">
+            
+              <mat-card-title>Sample Book</mat-card-title>
+              
+              <img mat-card-lg-image src="../assets/c2.png" >
+              <mat-card-content>
+                {{longText}}
+              </mat-card-content>
+              <button mat-raised-button color="accient">Details </button>
+              <button mat-raised-button color="primary">Request</button>
+            
+            </mat-card>
+        
+            <mat-card class="column">
+        
+              <mat-card-title>Sample Book</mat-card-title>
+              
+              <img mat-card-lg-image src="../assets/b3.jpg" >
+              <mat-card-content>
+                {{longText}}
+
+                
+              </mat-card-content>
+
+              <button mat-raised-button color="accient">Details </button>
+              <button mat-raised-button color="primary">Request</button>
+              
+              
+            </mat-card>
+        
+             <mat-card class="column">
+        
+              <mat-card-title>Sample Book</mat-card-title>
+              
+              <img mat-card-lg-image src="../assets/b1.avif" >
+              <mat-card-content>
+                {{longText}}
+              </mat-card-content>
+
+              <button mat-raised-button color="accient">Details </button>
+              <button mat-raised-button color="primary">Request</button>
+            
+            
+          </mat-card>
+        
+        </mat-card-content>
+  
+
+ 

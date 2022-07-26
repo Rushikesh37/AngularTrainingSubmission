@@ -1,0 +1,18 @@
+
+<mat-toolbar *ngIf="authenticate.isAuthenticated">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span> Book House<mat-icon>library_books</mat-icon></span>
+    <span class="example-spacer"></span>
+
+    <a mat-button routerLink="" ><mat-icon>account_circle</mat-icon>Hi {{name}}</a>
+    <a mat-button routerLink="" ><mat-icon>notifications</mat-icon>Notification</a>
+    <a mat-button routerLink="" (click)= "logOut()"><mat-icon>logout</mat-icon>LogOut</a>
+    
+  
+  </mat-toolbar>
+ 
+    <!-- <a mat-button routerLink="" ><mat-icon matBadgePosition="after">photo_album</mat-icon>My Books</a>
+    <a mat-button routerLink="" (click)= "bookList()"><mat-icon>local_library</mat-icon>Book List</a>
+    <a mat-button routerLink="" ><mat-icon matBadgePosition="after" matBadge="{{8}}" matBadgeColor="warn">notifications</mat-icon>Notification</a> -->

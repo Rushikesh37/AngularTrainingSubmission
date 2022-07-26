@@ -1,0 +1,59 @@
+.column {
+    float: left;
+    width: 30%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding in columns */
+  .row {margin: 0 -5px;
+margin-top: 50px;}
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Style the counter cards */
+  mat-card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+   
+    text-align: center;
+    background-color: #f1f1f1;
+    box-sizing: border-box;
+    color: black;
+    margin-left: 40px;
+    
+  }
+  
+  /* Responsive columns - one column layout (vertical) on small screens */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    mat-select {
+      color: black;
+    }
+
+
+    
+  }
+  .main-container{
+    
+    margin-left: 35%;
+    
+  }
+  mat-label{
+    color: black !important;
+    
+  }
+
+  mat-form-field{
+    
+    background-color: grey;
+     border-radius: 6px;
+  }

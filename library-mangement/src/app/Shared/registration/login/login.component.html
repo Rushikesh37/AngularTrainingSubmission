@@ -1,0 +1,84 @@
+<!-- 
+<div class="container">
+   <div class="row">
+      <!-- <div class="container1"> -->
+         <!-- <mat-card class="my-card"> -->
+            <!-- <mat-card-title>Login</mat-card-title>
+              <mat-card-content>
+                 <form class="my-form">
+                    <mat-form-field appearance="standard">
+                       <mat-label>Email</mat-label>
+                       <input  matInput  placeholder="Email" name="email" required="email">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="standard">
+                       <mat-label>Password</mat-label>
+                       <input  matInput  placeholder="Password" name="password" required="password">
+                    </mat-form-field>
+                 </form>
+              </mat-card-content>
+  <br>
+              <mat-card-actions>
+               <button mat-raised-button (click)="login()" routerLink="home/books" color="primary">LOGIN</button>
+            </mat-card-actions>  -->
+              <!-- <button mat-raised-button color="primary">LOGIN</button> -->
+              
+              <!-- <br>
+              <a href="register">New User?</a> -->
+          
+           <!-- </mat-card> -->
+      <!-- </div>
+   </div> -->
+<!-- </div>   -->
+
+
+<div class="container">
+   <div class="row">
+    
+        
+            <mat-card-title>LogIn</mat-card-title>
+            
+              <mat-card-content>
+                 <form class="my-form">
+                   <mat-form-field appearance="standard">
+                       <mat-label>Email Id</mat-label>
+                       <input  matInput  placeholder="Email" name="email" required="email">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field appearance="standard">
+                       <mat-label>Password</mat-label>
+                       <input  matInput  placeholder="lastname" name="lastname" required="lastname">
+                    </mat-form-field>
+            
+                 </form>
+              </mat-card-content>
+              <button mat-raised-button  routerLink='home/books' color="primary" (click)= "login()">Login</button>
+              <br>
+              <span>
+               <a style="text-align: center;">forgot password? &nbsp;&nbsp;&nbsp;&nbsp;</a>
+               <a style="text-align: center;">Sign up For House Of Book</a>
+
+              </span>
+             
+              
+              <br>
+              
+           
+
+           
+              <!-- <mat-card-actions>
+                 <button mat-raised-button (click)="login()" color="primary">LOGIN</button>
+              </mat-card-actions> -->
+          
+      </div>
+   </div>
+
+
+<!-- <form formGroup="signin">
+   <mat-form-field>
+   <input matInput placeholder="Password" [type]= "hide ? 'password' : 'text'" formControlName="password" required>
+   <mat-icon matSuffix (click)= "hide = !hide">{{hide ?'visibility_off' : 'visibility'}}</mat-icon>
+   <mat-hint *ngIf= "!passwordInput.value">Enter your password</mat-hint>
+   </mat-form-field>
+   </form> -->
+

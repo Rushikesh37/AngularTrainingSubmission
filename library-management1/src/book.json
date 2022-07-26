@@ -1,0 +1,145 @@
+{
+  "Authentication": [
+    {
+      "id": 1,
+      "userName": "user",
+      "password": "user123",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "userName": "admin",
+      "password": "admin123",
+      "role": "admin"
+    }
+  ],
+  "register": [
+    {
+      "firstName": "ryss",
+      "lastName": "yays",
+      "email": "rus@gmail.com",
+      "role": "user",
+      "password": "123",
+      "id": 1
+    },
+    {
+      "empId": "",
+      "firstName": "rtys",
+      "lastName": "yafs",
+      "email": "ry@gmail.com",
+      "role": "admin",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "firstName": "Rushikesh",
+      "lastName": "Yadav",
+      "email": "rushi@gmail.com",
+      "role": "user",
+      "password": "rushi123",
+      "id": 3
+    },
+    {
+      "firstName": "Rushikesh",
+      "lastName": "Yadav",
+      "email": "bookhouse@gmail.com",
+      "role": "admin",
+      "password": "admin123",
+      "id": 4
+    },
+    {
+      "firstName": "shivam",
+      "lastName": "ss",
+      "email": "shivam@gmail.com",
+      "role": "user",
+      "password": "shivam123",
+      "mobileNo": 8247896988,
+      "id": 5
+    }
+  ],
+  "booklist": [
+    {
+      "bookName": "harry potter",
+      "category": "general",
+      "authorName": "harry",
+      "discription": "movie ",
+      "quantity": 11,
+      "id": 1
+    },
+    {
+      "bookName": "Ramayana",
+      "category": "technology",
+      "authorName": "Tulsidas",
+      "discription": "History of Lord Rama",
+      "quantity": 19,
+      "id": 2
+    },
+    {
+      "bookName": "Jungle Book",
+      "category": "technology",
+      "authorName": "Tulsidas",
+      "discription": "Jungle",
+      "quantity": 18,
+      "id": 3
+    },
+    {
+      "bookName": "Alchemist",
+      "category": "general",
+      "authorName": "Paulo Coelho",
+      "discription": "General",
+      "quantity": 11,
+      "id": 4
+    },
+    {
+      "bookName": "Mahabharat",
+      "category": "story",
+      "authorName": "vyasa",
+      "discription": "story telling",
+      "quantity": 4,
+      "id": 5
+    }
+  ],
+  "requestlist": [],
+  "issuedBooks": [
+    {
+      "bookName": "harry potter",
+      "category": "general",
+      "authorName": "harry ",
+      "date": "2022-7-19T14:32:0",
+      "returnDate": "24/7/2022",
+      "id": 1
+    },
+    {
+      "bookName": "harry potter",
+      "category": "general",
+      "authorName": "harry ",
+      "date": "2022-7-19T14:48:19",
+      "returnDate": "24/7/2022",
+      "id": 2
+    },
+    {
+      "bookName": "harry potter",
+      "category": "general",
+      "authorName": "harry",
+      "date": "2022-7-26T12:12:54",
+      "returnDate": "31/7/2022",
+      "id": 3
+    },
+    {
+      "bookName": "Ramayana",
+      "category": "technology",
+      "authorName": "Tulsidas",
+      "date": "2022-7-26T12:12:54",
+      "returnDate": "31/7/2022",
+      "id": 4
+    },
+    {
+      "bookName": "Jungle Book",
+      "category": "technology",
+      "authorName": "Tulsidas",
+      "date": "2022-7-26T12:12:54",
+      "returnDate": "31/7/2022",
+      "id": 5
+    }
+  ]
+}

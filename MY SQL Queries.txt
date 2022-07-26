@@ -1,0 +1,82 @@
+sp_help 'Employee'
+
+select * from dbo.Employee
+
+select id as EmployeeId,name as EmployeeName from Employee
+
+select *from Employee where salary>5000
+
+update Employee set department='Tech' where name='Rushikesh'
+
+select *from dbo.Employee
+select * into Emp2 from Employee
+
+select *from Emp2  
+drop from Emp2
+
+
+update Employee set id=6 where name ='Rambhu'
+update Employee set id=7 where name ='nilesh'
+
+
+select name from Employee where department in ('Tech','security','HR')
+select name from Employee where department not in ('Tech','security','HR')
+
+select name from Employee where salary between 1000 and 3000
+
+ select isnull (id,0) as id ,name , isnull (salary,0) as Salary from Employee
+
+ select *from Employee where department is null
+
+
+
+alter table Employee add designation varchar (23)
+
+
+alter table Employee alter   column designation varchar(45)
+
+
+
+alter table Employee drop column designation
+sp_help 'Employee'
+
+sp_rename 'Employee.id','EmployeeID'
+sp_help 'Employee'
+
+sp_renamedb 'Training_Batch2','Training_Batch'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+******************************************************************************************************************************************
+select firstname,salary,department,Row_Number() over (partition by department order by salary desc) as RowNumber from Employees
+
+select firstname,salary,department,rank() over (partition by department order by salary desc) as RowNumber from Employees
+
+
+select firstname,salary,department,DENSE_RANK() over (partition by department order by salary desc) as RowNumber from Employees
+
+
+select firstname,salary,department ,ntile(5) over ( order by salary desc) as RowNumber from Employees
+
+
+
+
+
+
+
+
+
+
+

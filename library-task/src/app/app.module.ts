@@ -33,6 +33,7 @@ import { RegisterComponent } from './shared/register/register.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgToastModule } from "ng-angular-popup";
 import { MyBooksComponent } from './components/user/my-books/my-books.component';
+import { FloatButtonComponent } from './components/admin/float-button/float-button.component';
 
 
 
@@ -52,6 +53,7 @@ import { MyBooksComponent } from './components/user/my-books/my-books.component'
     HomeComponent,
     RegisterComponent,
     MyBooksComponent,
+    FloatButtonComponent,
   ],
   imports: [
     BrowserModule,

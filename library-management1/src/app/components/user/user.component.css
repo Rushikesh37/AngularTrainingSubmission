@@ -1,0 +1,37 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    font-size: 16px;
+    width: 5%;
+  }
+
+  .container{
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  h1{
+
+    text-align: center;
+    margin-top: 10px;
+
+  }
+
+  mat-icon{
+
+    size: 100px;
+    
+  }
+
+  .mybook{
+    margin-top: 20px;
+    margin-left: 50px;
+  }
+ 
