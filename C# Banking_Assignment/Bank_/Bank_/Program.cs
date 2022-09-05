@@ -5,10 +5,8 @@ using System.Runtime.Intrinsics.Arm;
 
 namespace Bank_
 {
-
     class Program
     {
-
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to MyBank");
@@ -22,10 +20,7 @@ namespace Bank_
                 int acctype = Convert.ToInt32(Console.ReadLine());
                 Account s = new Account();
                 if (acctype == 1)
-                {
-                   
-                   
-                    
+                {                   
                     SavingAccount s2 = new SavingAccount();  // here runtitm we have to use doubt concept
                     s.setType("saving");
                     s.createAccount();
@@ -39,16 +34,9 @@ namespace Bank_
 
                     Console.WriteLine("Enter account no to get details");
                     s.accountDetials((Console.ReadLine()));
-
-
-
-
-
                 }
                 else if(acctype == 2)
-                {
-                    
-                    
+                {                
                     s.setType("current");
                     s.createAccount();
 
@@ -56,20 +44,14 @@ namespace Bank_
 
                     Console.WriteLine("Enter amount you want to Deposite");
                     s2.Deposit(Convert.ToInt32(Console.ReadLine()));
-
                 }
                 else
                 {
                     Console.WriteLine("You enter wrong number");
-                }
-                
-                
-                
-          
+                }                     
                 }
             }
         }
-
     }
 
     

@@ -20,8 +20,6 @@ namespace Bank_
 
         public Account()
         {
-            
-
 
         }
 
@@ -38,9 +36,7 @@ namespace Bank_
         public virtual void Deposit(double amount)
         {
             Console.WriteLine("deposite method");
-
         }
-
 
         public void createAccount()
         {
@@ -94,7 +90,6 @@ namespace Bank_
 
         public void showBalance(string name)
         {
-
             if (cust_Name == name)
             {
                 Console.WriteLine("Your balance is {0}", balance);
@@ -103,7 +98,6 @@ namespace Bank_
             {
                 Console.WriteLine("No such name exists");
             }
-
         }
 
         public void accountDetials(string accNo)
@@ -117,8 +111,5 @@ namespace Bank_
                 Console.WriteLine("You Enter a wrong Account number!!");
             }
         }
-
     }  
-
-   
 }
