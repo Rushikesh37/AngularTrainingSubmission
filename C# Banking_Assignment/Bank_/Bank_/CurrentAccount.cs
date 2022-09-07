@@ -23,7 +23,6 @@ namespace Bank_
                 Console.WriteLine("Deposite must be greater than 800");
             }
         }
-
         public void Withdraw(double amount)
         {
             if (_balance < amount)

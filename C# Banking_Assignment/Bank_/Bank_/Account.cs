@@ -9,7 +9,7 @@ namespace Bank_
     public class Account
     {
         string cust_Name;
-        private int age;
+        public int age;
         string location;
         string state;
         string country;
@@ -22,17 +22,14 @@ namespace Bank_
         {
 
         }
-
         public void setType(string type)
         {
             this.type = type;
         }
-
         public string getType()
         {
             return this.type;
         }
-
         public virtual void Deposit(double amount)
         {
             Console.WriteLine("deposite method");
@@ -49,7 +46,7 @@ namespace Bank_
              age = Convert.ToInt32(Console.ReadLine());
             if (age > 68)
             {
-                Console.WriteLine("You are not eligible your age is greater than 68");
+                Console.WriteLine("your age is greater than 68");
             }
             else
             {
@@ -64,30 +61,27 @@ namespace Bank_
 
                 Console.Write("Enter Your EmailId: ");
                 emailId = Console.ReadLine();
-            }
 
-            if (type == "saving")
-            {
-                string startNo = "Sav";
-                Random r = new Random();
-                string r1 = r.Next(0, 999999).ToString("D6");
-                accNumber = startNo + r1;
+                if (type == "saving")
+                {
+                    string startNo = "Sav";
+                    Random r = new Random();
+                    string r1 = r.Next(0, 999999).ToString("D6");
+                    accNumber = startNo + r1;
 
-                Console.WriteLine("Congratulations!!!,Your Saving account created your account no is {0}", accNumber);
+                    Console.WriteLine("Congratulations!!!,Your Saving account created your account no is {0}", accNumber);
+                }
+                else
+                {
+                    string startNo = "Curr";
+                    Random r = new Random();
+                    string r1 = r.Next(0, 999999).ToString("D6");
+                    accNumber = startNo + r1;
 
-            }
-            else
-            {
-                string startNo = "Curr";
-                Random r = new Random();
-                string r1 = r.Next(0, 999999).ToString("D6");
-                accNumber = startNo + r1;
-
-                Console.WriteLine("Congratulations!!!,Your Current account created your account no is {0}", accNumber);
-            }
+                    Console.WriteLine("Congratulations!!!,Your Current account created your account no is {0}", accNumber);
+                }
+            }  
         }
-
-
         public void showBalance(string name)
         {
             if (cust_Name == name)
@@ -99,7 +93,6 @@ namespace Bank_
                 Console.WriteLine("No such name exists");
             }
         }
-
         public void accountDetials(string accNo)
         {
             if (accNumber == accNo)

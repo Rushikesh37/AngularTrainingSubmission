@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\C_sharp\\Bank_\\Bank_\\Bank_.csproj",
+      "projectUniqueName": "C:\\Users\\Rushikesh.yadav\\AngularTrainingSubmission\\C# Banking_Assignment\\Bank_\\Bank_\\Bank_.csproj",
       "projectName": "Bank_",
-      "projectPath": "C:\\C_sharp\\Bank_\\Bank_\\Bank_.csproj",
+      "projectPath": "C:\\Users\\Rushikesh.yadav\\AngularTrainingSubmission\\C# Banking_Assignment\\Bank_\\Bank_\\Bank_.csproj",
       "packagesPath": "C:\\Users\\Rushikesh.yadav\\.nuget\\packages\\",
-      "outputPath": "C:\\C_sharp\\Bank_\\Bank_\\obj\\",
+      "outputPath": "C:\\Users\\Rushikesh.yadav\\AngularTrainingSubmission\\C# Banking_Assignment\\Bank_\\Bank_\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rushikesh.yadav\\AppData\\Roaming\\NuGet\\NuGet.Config",
