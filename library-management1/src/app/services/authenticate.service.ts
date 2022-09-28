@@ -34,6 +34,7 @@ export class AuthenticateService {
   authenticateUser() {
     this.res=(this.user.find((x:any)=>{
       return x.email==this.data.email && x.password==this.data.password
+    
     }))  
   }
 
@@ -51,6 +52,7 @@ export class AuthenticateService {
       this.isAuthenticated=true;
       this.router.navigate(['admin']),
       localStorage.setItem('adminName',this.res.firstName);
+      console.log(this.res)
       this.toast.success({detail:"login success", summary:"welcome admin",duration:5000});
     }else if(this.res.role==='user'){
       this.isUser=true;

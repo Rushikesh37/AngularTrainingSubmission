@@ -1,59 +1,100 @@
 <app-navbar></app-navbar>
 <h1><b>{{actionbtn}}</b></h1>
 
-<div class="container">
+<!-- <div class="container">
     <div style="margin-top: 10px;">
 
         <mat-form-field appearance="standard">
             <mat-label>Search here...</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="search by id,name,author" #input>
-        </mat-form-field>
-
+        </mat-form-field> -->
+<!-- 
         <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
                 <ng-container matColumnDef="id">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
                     <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-                </ng-container>
+                </ng-container> -->
                 <!-- bookName Column -->
-                <ng-container matColumnDef="bookName">
+                <!-- <ng-container matColumnDef="bookName">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Book Name </th>
                     <td mat-cell *matCellDef="let row"> {{row.bookName}} </td>
-                </ng-container>
+                </ng-container> -->
+
 
                 <!-- category -->
-                <ng-container matColumnDef="category">
+                <!-- <ng-container matColumnDef="category">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
                     <td mat-cell *matCellDef="let row"> {{row.category}} </td>
-                </ng-container>
+                </ng-container> -->
 
                 <!-- authorName Column -->
-                <ng-container matColumnDef="authorName">
+                <!-- <ng-container matColumnDef="authorName">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Authorname </th>
                     <td mat-cell *matCellDef="let row"> {{row.authorName}} </td>
-                </ng-container>
+                </ng-container> -->
 
-                <ng-container matColumnDef="discription">
+                <!-- <ng-container matColumnDef="discription">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Discription </th>
                     <td mat-cell *matCellDef="let row"> {{row.discription}} </td>
-                </ng-container>
+                </ng-container> -->
 
-                <ng-container matColumnDef="quantity">
+                <!-- <ng-container matColumnDef="quantity">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
                     <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
-                </ng-container>
+                </ng-container> -->
 
                 <!-- <ng-container matColumnDef="action">
 
                 </ng-container> -->
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
                 <!-- Row shown when there is no matching data. -->
-                <tr class="mat-row" *matNoDataRow>
+                <!-- <tr class="mat-row" *matNoDataRow>
                     <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
                 </tr>
             </table>
             <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
              </div>
     </div>
-</div>
+</div> -->
+
+
+<!-- card section -->
+
+
+<!-- card section-->
+
+
+
+
+<!-- Ag Grid section -->
+<ag-grid-angular
+
+style="width: 80%; height: 250px; margin: 80px 150px;"
+
+class="ag-theme-alpine-dark"
+
+[rowData]="data"
+
+[columnDefs]="colDefs"
+
+[defaultColDef]="defaultColDef"
+
+[pagination]="true"
+
+[paginationPageSize]="6"
+
+[animateRows]="true"
+
+>
+
+</ag-grid-angular>
+
+
+<!-- Ag Grid section -->
+
+
+
+
+

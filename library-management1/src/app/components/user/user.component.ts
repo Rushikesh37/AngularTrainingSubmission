@@ -12,6 +12,7 @@ import { MyBooksComponent } from './myBooks/myBooks.component';
 import Swal from 'sweetalert2';
 
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-user',
@@ -20,15 +21,33 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 })
 export class UserComponent implements OnInit {
 
+  defaultColDef:ColDef={sortable:true, filter:true}
+
+  colDefs = [
+    {headerName: 'Id', field: 'id', sortable: true, filter: true},
+    {headerName: 'Book Name', field: 'bookName', sortable: true, filter: true},
+    {headerName: 'Category', field: 'category', sortable: true, filter: true},
+    {headerName: 'Author Name', field: 'authorName', sortable: true, filter: true},
+    {headerName: 'Discription', field: 'discription', sortable: true, filter: true},
+    {headerName: 'Quantity', field: 'quantity', sortable: true, filter: true},
+    {headerName: 'Action', field: 'action', sortable: true, filter: true}
+];
+
+rowData: any;
+data:any
+users:any
+term:string="";
+
   requestForm !: FormGroup;
   no: any
-
+  // displayedColumns: string[] = ['id', 'bookName', 'category', 'authorName','discription','quantity','image'];
   displayedColumns: string[] = ['id', 'bookName', 'category', 'authorName', 'discription', 'quantity', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   count: number = 0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+authenticate: any;
 
 
   constructor(public dialog: MatDialog, private formbuilder: FormBuilder, private toast: NgToastService, private bookapi: BookapiService, private requestapi: UserServiceService, private getMyBooK: UserServiceService) { }
@@ -51,6 +70,8 @@ export class UserComponent implements OnInit {
         this.dataSource = new MatTableDataSource(res);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        this.data=res;
+        
       },
       error: (err) => {
         // alert("Error while fetching the data")

@@ -55,6 +55,24 @@
       "password": "shivam123",
       "mobileNo": 8247896988,
       "id": 5
+    },
+    {
+      "firstName": "parshuram",
+      "lastName": "salgare",
+      "email": "parshu@gmail.com",
+      "role": "user",
+      "mobileNo": 9370650874,
+      "password": "123456",
+      "id": 6
+    },
+    {
+      "firstName": "Abhinav",
+      "lastName": "Joshi",
+      "email": "abhi@gmail.com",
+      "role": "user",
+      "mobileNo": 785865895,
+      "password": "abhi123",
+      "id": 7
     }
   ],
   "booklist": [
@@ -64,6 +82,7 @@
       "authorName": "harry",
       "discription": "movie ",
       "quantity": 11,
+      "image": "https://m.media-amazon.com/images/I/71xcuT33RpL._SY879_.jpg",
       "id": 1
     },
     {
@@ -72,6 +91,7 @@
       "authorName": "Tulsidas",
       "discription": "History of Lord Rama",
       "quantity": 19,
+      "image": "https://images-eu.ssl-images-amazon.com/images/I/51c4q3xhMIL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
       "id": 2
     },
     {
@@ -80,6 +100,7 @@
       "authorName": "Tulsidas",
       "discription": "Jungle",
       "quantity": 18,
+      "image": "https://i.pinimg.com/736x/9e/73/ac/9e73ac8d08ad88ed7da5dbd4966f4937--jungle-book-toys-the-jungle-book.jpg",
       "id": 3
     },
     {
@@ -88,6 +109,7 @@
       "authorName": "Paulo Coelho",
       "discription": "General",
       "quantity": 11,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/71aFt4+OTOL.jpg",
       "id": 4
     },
     {
@@ -96,19 +118,111 @@
       "authorName": "vyasa",
       "discription": "story telling",
       "quantity": 4,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/91uIIc5KsOS.jpg",
       "id": 5
+    },
+    {
+      "bookName": "General",
+      "category": "general",
+      "authorName": "rushi",
+      "discription": "wfsjfd",
+      "quantity": 10,
+      "image": "https://5.imimg.com/data5/IJ/CV/MY-11183377/general-knowledge-500x500.png",
+      "id": 6
+    },
+    {
+      "bookName": "Secret",
+      "category": "story",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81fdQIY6ykL.jpg",
+      "id": 7
+    },
+    {
+      "bookName": "Lunar Storm",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://www.adobe.com/express/create/cover/media_178ebed46ae02d6f3284c7886e9b28c5bb9046a02.jpeg?width=400&format=jpeg&optimize=medium",
+      "id": 8
+    },
+    {
+      "bookName": "Muscle",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://static01.nyt.com/images/2019/12/22/books/review/22BestCovers-Dorfman-02/22BestCovers-Dorfman-02-mobileMasterAt3x.jpg",
+      "id": 9
+    },
+    {
+      "bookName": "Fairy Tale",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://www.booklistqueen.com/wp-content/uploads/fairy-tale-stephen-king.jpg",
+      "id": 10
+    },
+    {
+      "bookName": "Jaws",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://www.creatopy.com/blog/wp-content/uploads/2020/08/Jaws-Book-Cover-400x600.jpg",
+      "id": 11
+    },
+    {
+      "bookName": "No Filter",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY-YscQ-kHPUDxOKbDySrk6ot6kAz7HetNAA&usqp=CAU",
+      "id": 12
+    },
+    {
+      "bookName": "Youth",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://www.adobe.com/express/create/cover/media_1cd0682a499822ec6c23acb54e13432be62115883.jpeg?width=400&format=jpeg&optimize=medium",
+      "id": 13
+    },
+    {
+      "bookName": "Hooked",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://ik.imagekit.io/my0uw7ar7/wp-content/uploads/2019/11/Hooked-updated-cover-US.png",
+      "id": 14
+    },
+    {
+      "bookName": "Moder Spaces",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://template.canva.com/EADaopxBna4/1/0/251w-ujD6UPGa9hw.jpg",
+      "id": 15
+    },
+    {
+      "bookName": "Ruski Bond",
+      "category": "general",
+      "authorName": "gedhg",
+      "discription": "asvdb",
+      "quantity": 10,
+      "image": "https://lh3.googleusercontent.com/mMvxnbatTNSjP6DKo2qAkBEnnzp2r1crXw4yoefbBZmi1WdVaicca70yvN2cUmfeXuFs0DBBAKGk-WsVo81cQ2G31RSTemRCVIss1VfW7Q=w500-rw",
+      "id": 16
     }
   ],
   "requestlist": [],
   "issuedBooks": [
-    {
-      "bookName": "harry potter",
-      "category": "general",
-      "authorName": "harry ",
-      "date": "2022-7-19T14:32:0",
-      "returnDate": "24/7/2022",
-      "id": 1
-    },
     {
       "bookName": "harry potter",
       "category": "general",
@@ -140,6 +254,14 @@
       "date": "2022-7-26T12:12:54",
       "returnDate": "31/7/2022",
       "id": 5
+    },
+    {
+      "bookName": "harry potter",
+      "category": "general",
+      "authorName": "harry",
+      "date": "2022-9-22T23:17:30",
+      "returnDate": "27/9/2022",
+      "id": 6
     }
   ]
 }

@@ -1,4 +1,4 @@
-table {
+/* table {
     width: 100%;
   }
   
@@ -28,4 +28,9 @@ table {
 
   button{
     margin-top: 5px;
+  } */
+
+  h1{
+    text-align: center;
+    margin-top: 50px;
   }

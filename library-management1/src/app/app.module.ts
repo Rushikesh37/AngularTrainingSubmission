@@ -14,7 +14,7 @@ import { UserComponent } from './components/user/user.component';
 import { AdminComponent } from './components/admin/admin.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
-
+import {MatListModule} from '@angular/material/list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import { HttpClient, HttpClientModule } from  '@angular/common/http';
@@ -35,23 +35,21 @@ import { MyBooksComponent } from './components/user/myBooks/myBooks.component';
 import { BookListComponent } from './shared/bookList/book-list.component';
 import { UserNavbarComponent } from './components/user/userNavbar/user-navbar.component';
 import { AdminNavbarComponent } from './components/admin/adminNavbar/admin-navbar.component';
-import { AboutUsComponent } from './components/contactUs/contact-us.component';
-
+import { AboutUsComponent } from './components/contact-Us/contact-us.component';
+import {MatDividerModule} from '@angular/material/divider';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BookCardComponent } from './shared/book-card/book-card.component';
 import { IssuedBookComponent } from './components/admin/issuedBook/issued-book.component';
+import {MatMenuModule} from '@angular/material/menu';
+import { AgGridModule } from 'ag-grid-angular';
+import {Ng2SearchPipeModule}  from 'ng2-search-filter';
+import { SideNavbarComponent } from './shared/sideNavbar/side-navbar.component';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+
 
 
 schemas: [CUSTOM_ELEMENTS_SCHEMA]
-
-
-
-
-
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -71,18 +69,23 @@ schemas: [CUSTOM_ELEMENTS_SCHEMA]
     AboutUsComponent,
     BookCardComponent,
     IssuedBookComponent,
-  
+    SideNavbarComponent,
+
+
+
     
   
-    
     
   ],
   imports: [
     BrowserModule,
+    Ng2SearchPipeModule,
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
+    MatMenuModule,
+    MatDividerModule,
     FormsModule,
     MatCardModule,
     MatProgressSpinnerModule,
@@ -101,9 +104,13 @@ schemas: [CUSTOM_ELEMENTS_SCHEMA]
     MatCheckboxModule,
     NgToastModule,
     MatCardModule,
+    AgGridModule,
+    PerfectScrollbarModule,
+    MatSidenavModule,
+    MatListModule,
+
+   
     
-    
-  
         
   ],
   providers: [],

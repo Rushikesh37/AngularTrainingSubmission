@@ -13,8 +13,10 @@ export class UserNavbarComponent implements OnInit {
   @Input()
   name: string | undefined;
   userName = localStorage.getItem('userName');
+
   constructor(private router:Router,public authenticate:AuthenticateService,private http:HttpClient) { }
- 
+  
+  showFiller = false;
   ngOnInit(): void {
 
   }

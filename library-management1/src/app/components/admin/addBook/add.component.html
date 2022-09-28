@@ -41,6 +41,13 @@
         <input matInput formControlName="quantity" type="number" placeholder="quantity">
         <mat-hint>Hint</mat-hint>
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+                <input type="text" matInput placeholder="Add image url" formControlName="image">   
+                <mat-error>
+                    <span *ngIf="!bookForm.get('image')?.valid && bookForm.get('image')?.touched">image Required</span>
+                </mat-error>
+            </mat-form-field>
     </form>
 </div>
 

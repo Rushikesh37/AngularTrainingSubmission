@@ -10,7 +10,7 @@ import { AuthenticateService } from 'src/app/services/authenticate.service';
 export class AdminNavbarComponent implements OnInit {
   name = localStorage.getItem('adminName');
   constructor(private router:Router ,public authenticate:AuthenticateService) { }
-
+  showFiller = false;
   ngOnInit(): void {
   }
 
@@ -22,5 +22,11 @@ export class AdminNavbarComponent implements OnInit {
   logOut(){
     this.router.navigateByUrl('home')
   }
+
+
+
+
+
+  
 
 }

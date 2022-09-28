@@ -25,7 +25,8 @@ export class AdbookdialogComponent implements OnInit {
       category: ['', Validators.required],
       authorName: ['', Validators.required],
       discription: ['', Validators.required],
-      quantity: ['', Validators.required]
+      quantity: ['', Validators.required],
+      image:['', Validators.required],
     })
 
     if (this.editBook) {
@@ -34,7 +35,8 @@ export class AdbookdialogComponent implements OnInit {
       this.bookForm.controls['bookName'].setValue(this.editBook.bookName);
       this.bookForm.controls['category'].setValue(this.editBook.category);
       this.bookForm.controls['authorName'].setValue(this.editBook.authorName);
-      this.bookForm.controls['discription'].setValue(this.editBook.discription);
+      this.bookForm.controls['image'].setValue(this.editBook.image);
+     this.bookForm.controls['discription'].setValue(this.editBook.discription);
       this.bookForm.controls['quantity'].setValue(this.editBook.quantity);
     }           //data is coming to console after poping form
   }

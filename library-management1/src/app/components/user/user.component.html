@@ -1,5 +1,6 @@
 <app-user-navbar ></app-user-navbar>
 
+
 <button class="mybook"  mat-icon-button color="primary" matBadge="{{no}}"   matBadgePosition="after" matBadgeColor="warn" (click)="myBooks()">
   <mat-icon  >photo_album</mat-icon>My Books 
 </button>
@@ -70,3 +71,34 @@
         </form>
     </div>
 </div>
+
+
+<!-- ..................................AG Grid.................... -->
+<ag-grid-angular
+
+style="width:90%; height: 250px; margin:auto;margin-top: 50px;"
+
+class="ag-theme-alpine-dark"
+
+[rowData]="data"
+
+[columnDefs]="colDefs"
+
+[defaultColDef]="defaultColDef"
+
+[pagination]="true"
+
+[paginationPageSize]="8"
+
+[animateRows]="true"
+>
+
+</ag-grid-angular>
+
+
+
+
+
+
+
+

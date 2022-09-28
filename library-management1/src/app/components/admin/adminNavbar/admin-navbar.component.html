@@ -1,8 +1,15 @@
 
 <mat-toolbar *ngIf="authenticate.isAuthenticated">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-      <mat-icon>menu</mat-icon>
-    </button>
+  <button
+  mat-icon-button
+  class="example-icon"
+  aria-label="Example icon-button with menu icon"
+  *ngIf="sidenav.mode === 'over'"
+  (click)="sidenav.toggle()"
+>
+  <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+  <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+</button>
     <span> Book House<mat-icon>library_books</mat-icon></span>
     <span class="example-spacer"></span>
 
@@ -16,3 +23,41 @@
     <!-- <a mat-button routerLink="" ><mat-icon matBadgePosition="after">photo_album</mat-icon>My Books</a>
     <a mat-button routerLink="" (click)= "bookList()"><mat-icon>local_library</mat-icon>Book List</a>
     <a mat-button routerLink="" ><mat-icon matBadgePosition="after" matBadge="{{8}}" matBadgeColor="warn">notifications</mat-icon>Notification</a> -->
+
+
+    <mat-sidenav-container>
+      <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+       <img class="avatar mat-elevation-z4 image" src="https://booleanstrings.com/wp-content/uploads/2021/10/profile-picture-circle-hd.png" />
+      <!-- <img class="avatar mat-elevation-z4 image" src="url" /> -->
+      <mat-icon style="margin-top: -8rem;">edit </mat-icon>
+     
+     
+        <h4 class="name">Hi Admin</h4>
+        <p class="designation">Admin</p>
+        <button mat-button class="menu-button" routerLink="/approval">
+          <mat-icon>book</mat-icon>
+          <span>List Of Books</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/adminhistory">
+          <mat-icon>pending_actions</mat-icon>
+          <span>Request Books</span>
+        </button>
+        <button mat-button class="menu-button" routerLink="/request">
+          <mat-icon>history</mat-icon>
+          <span>History</span>
+        </button>
+    
+        <button mat-button class="menu-button" routerLink="/help">
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+        </button>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+           
+        </div>
+          <router-outlet></router-outlet>
+       
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    
