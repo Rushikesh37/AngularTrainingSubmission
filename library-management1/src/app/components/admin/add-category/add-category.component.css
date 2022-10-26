@@ -1,0 +1,30 @@
+.category{
+   
+   text-align: center;
+   margin-top: 5%;
+ 
+  
+}
+.mat-card{
+    width: 40%;
+    height: 70vh;
+    margin-left: 30%;
+    border: black;
+    border-width: 10px;
+   
+
+    
+}
+.mat-form-field{
+    margin-top: 50px;
+    
+}
+button{
+    width: 100px;
+    
+}
+
+img{
+  width: 350px;
+  margin-top: -170px;
+}

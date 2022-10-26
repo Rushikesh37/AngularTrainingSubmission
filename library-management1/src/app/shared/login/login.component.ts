@@ -10,19 +10,15 @@ import { AuthenticateService } from 'src/app/services/authenticate.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent{
   constructor(private router: Router,private matdialog:MatDialog,private toast :NgToastService,private authenticate:AuthenticateService) { }
 
  email: string | undefined;
  password: string | undefined;
 
-  ngOnInit() {
-  }
-
-  login() : void {
-  }
   public onSubmit(form:NgForm){
     this.authenticate.authenticateEmployee(form.value);
+    console.log("Hello");
     this.matdialog.closeAll();
   }
 }

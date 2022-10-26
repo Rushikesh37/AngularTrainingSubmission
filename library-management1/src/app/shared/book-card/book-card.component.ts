@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
 import { BookapiService } from 'src/app/services/bookapi.service';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
   selector: 'app-book-card',
@@ -9,18 +11,30 @@ import { BookapiService } from 'src/app/services/bookapi.service';
 })
 export class BookCardComponent implements OnInit {
   allBookList: any;
+  Form:any
   term:string="";
-  users:any
+  books:any
   today= new Date();
   tomorrow = new Date(this.today.getTime() + (168 * 60 * 60 * 1000));
 
   // column=["id","image","BookName" ,"author" ,"imageUrl"]
-  displayedColumns: string[] = ['id', 'bookName', 'category', 'authorName','discription','quantity','image'];
+  displayedColumns: string[] = ['bookName','authorName','bookQuantity','categoryName','image','action'];
 
-  constructor(private bookapi:BookapiService,private toast:NgToastService) { }
+  constructor(private formbuilder: FormBuilder,private bookapi:BookapiService,private toast:NgToastService,private userapi:UserServiceService) { }
 
   ngOnInit(): void {
-    this.getAllBooks()
+
+    this.Form = this.formbuilder.group({
+      // id:['',Validators.required],
+      
+      bookId: ['', Validators.required],
+      userId:['', Validators.required],
+      requestDate: [this.today]
+    })
+      this.getAllBooks();
+   
+      
+  
   }
 
 
@@ -28,7 +42,7 @@ export class BookCardComponent implements OnInit {
     this.bookapi.getBook().subscribe({
     next:(res)=>{
       console.log(res)
-      this.users=res
+      this.books=res
   
   },
   error:(err)=>{
@@ -37,4 +51,25 @@ export class BookCardComponent implements OnInit {
   }
 })
 }
+sendRequest(data:any){
+
+   
+  this.Form.controls['bookId'].setValue(data.bookId);
+  this.Form.controls['userId'].setValue(data.localStorage.getItem.arguments.id);
+  this.Form.controls['requestDate'].setValue(data.requestDate);
+    this.userapi.requestBook(this.Form.value)
+    .subscribe({
+      
+      next: (res) => {
+        // this.action = 'check_box';
+        // this.color = 'warn'
+        alert('Thank you...');
+        console.log(res,'hello');
+    
+      }
+  
+    })
+
+  }
+
 }

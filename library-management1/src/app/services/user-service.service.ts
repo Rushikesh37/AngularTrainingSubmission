@@ -22,4 +22,8 @@ export class UserServiceService {
   getIssuedBook(){
     return this.http.get<any>(issuedBooks)
   }
+
+  getIssuedBookById(id:number){
+    return this.http.get<any>(issuedBooks + id);
+  }
 }

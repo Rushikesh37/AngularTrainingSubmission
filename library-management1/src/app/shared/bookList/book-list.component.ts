@@ -10,6 +10,8 @@ import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { AgGridAngular } from 'ag-grid-angular';
 import { HttpClient } from '@angular/common/http';
+import { AdbookdialogComponent } from 'src/app/components/admin/addBook/add.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-book-list',
@@ -27,12 +29,12 @@ export class BookListComponent implements OnInit {
 
 
   colDefs = [
-    {headerName: 'Id', field: 'id', sortable: true, filter: true},
+    {headerName: 'bookId', field: 'bookId', sortable: true, filter: true},
     {headerName: 'Book Name', field: 'bookName', sortable: true, filter: true},
-    {headerName: 'Category', field: 'category', sortable: true, filter: true},
     {headerName: 'Author Name', field: 'authorName', sortable: true, filter: true},
-    {headerName: 'Discription', field: 'discription', sortable: true, filter: true},
-    {headerName: 'Quantity', field: 'quantity', sortable: true, filter: true}
+    {headerName: 'categoryName', field: 'categoryName', sortable: true, filter: true},
+    {headerName: 'Quantity', field: 'bookQuantity', sortable: true, filter: true},
+    {headerName: 'Action', field: 'action', sortable: true, filter: true}
 ];
 
 
@@ -43,13 +45,13 @@ rowData: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['id', 'bookName', 'category', 'authorName','discription','quantity'];
+  displayedColumns: string[] = ['bookId', 'bookName',  'authorName','bookQuantity','categoryName','action'];
   dataSource!: MatTableDataSource<any>;
   data:any
 
   actionbtn:string="List Of Books";
 
-  constructor(private bookapi:BookapiService,private router:Router,private toast :NgToastService,private http: HttpClient) { }
+  constructor(private bookapi:BookapiService,private router:Router,private toast :NgToastService,private http: HttpClient,public dialog: MatDialog) { }
 
   ngOnInit(): void {
    
@@ -64,12 +66,44 @@ rowData: any;
         console.log(res.length);
         this.data=res;
        
+       
       },
       error:(err)=>{
         // alert("Error while fetching the data")
         this.toast.error({detail:"Error While fetching the data!", summary:"something went wrong",duration:5000});
       }
     })
+  }
+
+  editBook(row: any) {
+ 
+    this.dialog.open(AdbookdialogComponent, {
+      width: '30%',
+      data: row
+      
+    }).afterClosed().subscribe((val: string) => {
+      if (val === 'update') {
+        this.getAllBooks();
+        
+      }
+    })
+    
+    
+  }
+
+  deleteBook(bookId: number) {
+    this.bookapi.deleteBook(bookId).subscribe({
+      next: (res) => {
+        // alert("Book deleted Successfully")
+        this.toast.success({ detail: "Book deleted Successfully", summary: "one book deleted", duration: 5000 });
+        this.getAllBooks();
+      },
+      error: () => {
+        // alert("Error While deleting the book!")
+        this.toast.error({ detail: "Error While deleting the book!", summary: "something went wrong", duration: 5000 });
+      }
+    })
+
   }
 
   applyFilter(event: Event) {

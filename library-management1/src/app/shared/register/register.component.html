@@ -10,43 +10,60 @@
       <p>
         <mat-form-field appearance="fill">
           <mat-label>First Name</mat-label>
-          <input formControlName="firstName" matInput placeholder="Enter First Name">
+          <input formControlName="FirstName" matInput placeholder="Enter First Name">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Last Name</mat-label>
-          <input matInput placeholder="Enter Last Name" formControlName="lastName">
+          <input matInput placeholder="Enter Last Name" formControlName="LastName">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="fill">
           <mat-label>Email Id</mat-label>
           <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" matInput placeholder="email"
-            formControlName="email">
+            formControlName="Email">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="standard">
           <mat-label>Role</mat-label>
-          <select matNativeControl required formControlName="role">
-            <option value="admin">Admin</option>
-            <option value="user">User</option>
+          <select matNativeControl required formControlName="RoleId">
+            <option value="1">Admin</option>
+            <option value="2">User</option>
           </select>
         </mat-form-field>
       </p>
 
       <p>
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="standard">
+          <mat-label>Gender</mat-label>
+       
+          <select matNativeControl required formControlName="Gender" placeholder="Gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="standard">
+          <mat-label>City</mat-label>
+          <input type="string" matInput placeholder="Gender" formControlName="City">
+        </mat-form-field>
+              
+      </p>
+      <p>
+        <mat-form-field appearance="standard">
           <mat-label>Mobile No</mat-label>
-          <input type="number" matInput placeholder="Mobile No" formControlName="mobileNo">
-          <mat-hint>Mobile No</mat-hint>
+          <input type="string" matInput placeholder="Mobile No" formControlName="Contact">
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="standard">
           <mat-label>Password</mat-label>
-          <input type="password" matInput placeholder="password" formControlName="password">
+          <input type="password" matInput placeholder="password" formControlName="Password">
         </mat-form-field>
       </p>
  

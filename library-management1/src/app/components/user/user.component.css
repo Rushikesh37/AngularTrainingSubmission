@@ -1,63 +1,48 @@
-table {
+mat-sidenav{
+    background-color: black;
+    width: 230px;
+    height: 100%;
+    color: #ffffff;
+  }
+  mat-sidenav-content{
+    height: 100vh;
+  }
+  .main{
+    margin-top: 60px;
+    margin-left: 10px;
+  }
+  .box{
+    margin-right: 230px;
+    margin-top: 15px;
+  }
+  .box>mat-icon{
+    margin-left: 5%;
+    color: #ffffff;/* color: #608299; */
+  }
+  mat-toolbar{
+    background:#f5f5f5;
+    justify-content: space-between ;
+    position: fixed;
+    top:0;
     width: 100%;
-  }
-  
-  .mat-form-field {
-    font-size: 14px;
-    width: 100%;
-  }
-  
-  td, th {
-    font-size: 16px;
-    width: 5%;
-  }
-
-  .container{
-    max-width: 90%;
-    margin:auto;
-  }
-
-  h1{
-
-    text-align: center;
-    margin-top: 10px;
-
-  }
-
-  mat-icon{
-
-    size: 100px;
+    z-index: 9999;
     
+   
   }
-
-  .mybook{
-    margin-top: 20px;
-    margin-left: 50px;
+  mat-icon{
+    color:black
   }
-
-
+  .logo{
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 5%;
+  }
+  .logotext{
+    margin-left: 5%;
+    font-size: 1.5rem;
+    color: white;
+  }
+  mat-icon+span{
+    color: white;
+  }
   
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-  
- 

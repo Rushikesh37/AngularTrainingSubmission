@@ -26,7 +26,7 @@ export class NavbarComponent implements OnInit {
   }
 
   bookList(){
-    this.router.navigateByUrl('booklist')
+    this.router.navigateByUrl('bookcard')
   }  
  }
 

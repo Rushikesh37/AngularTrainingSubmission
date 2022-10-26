@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NgToastComponent, NgToastService } from 'ng-angular-popup';
 import { environment } from 'src/environments/environment';
 
-const register=environment.register;
+const oldregister=environment.oldregister;
 
 @Injectable({
   providedIn: 'root'
@@ -22,8 +22,9 @@ export class AuthenticateService {
   constructor(private http:HttpClient,private router:Router,private toast:NgToastService) { }
 
   public authenticateEmployee(data:any){
-    console.log(data);
-    return this.http.get(register).subscribe(res=>{
+
+    return this.http.get(oldregister).subscribe(res=>{
+    
       this.user=res;
       this.data=data;
       this.authenticateUser();
@@ -34,8 +35,14 @@ export class AuthenticateService {
   authenticateUser() {
     this.res=(this.user.find((x:any)=>{
       return x.email==this.data.email && x.password==this.data.password
+     
+   
     
     }))  
+
+    console.log(this.res)
+
+   
   }
 
   navigate() {
@@ -47,18 +54,21 @@ export class AuthenticateService {
   }
 
   navigateUser(){
+   
     if(this.res.role==='admin'){
       this.isAdmin=true;
       this.isAuthenticated=true;
-      this.router.navigate(['admin']),
+      this.router.navigate(['admin/booklist']);
       localStorage.setItem('adminName',this.res.firstName);
+      localStorage.setItem('adminId',this.res.id);
       console.log(this.res)
       this.toast.success({detail:"login success", summary:"welcome admin",duration:5000});
     }else if(this.res.role==='user'){
       this.isUser=true;
       this.isAuthenticated=true;
-      this.router.navigate(['user']);
+      this.router.navigate(['user/booklist']);
       localStorage.setItem('userName',this.res.firstName);
+      localStorage.setItem('userId',this.res.id);
       this.toast.success({detail:"login success", summary:"welcome user",duration:5000});
     } 
   }

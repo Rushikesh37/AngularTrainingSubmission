@@ -10,7 +10,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
-import { UserComponent } from './components/user/user.component';
+
 import { AdminComponent } from './components/admin/admin.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
@@ -31,13 +31,11 @@ import { HomeComponent } from './shared/home/home.component';
 import { RegisterComponent } from './shared/register/register.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { NgToastModule } from "ng-angular-popup";
-import { MyBooksComponent } from './components/user/myBooks/myBooks.component';
+
 import { BookListComponent } from './shared/bookList/book-list.component';
-import { UserNavbarComponent } from './components/user/userNavbar/user-navbar.component';
-import { AdminNavbarComponent } from './components/admin/adminNavbar/admin-navbar.component';
+
 import { AboutUsComponent } from './components/contact-Us/contact-us.component';
 import {MatDividerModule} from '@angular/material/divider';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BookCardComponent } from './shared/book-card/book-card.component';
 import { IssuedBookComponent } from './components/admin/issuedBook/issued-book.component';
 import {MatMenuModule} from '@angular/material/menu';
@@ -46,36 +44,37 @@ import {Ng2SearchPipeModule}  from 'ng2-search-filter';
 import { SideNavbarComponent } from './shared/sideNavbar/side-navbar.component';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { AdminNavbarComponent } from './components/admin/admin-navbar/admin-navbar.component';
+import { UserComponent } from './components/user/user.component';
+import { UserNavbarComponent } from './components/user/user-navbar/user-navbar.component';
+import { MybooksComponent } from './components/user/mybooks/mybooks.component';
+import { AddCategoryComponent } from './components/admin/add-category/add-category.component';
+import { UserListComponent } from './shared/user-list/user-list.component';
 
-
-
-schemas: [CUSTOM_ELEMENTS_SCHEMA]
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent,
     AdminComponent,
     AdbookdialogComponent,
     RequestBookComponent,
     NavbarComponent,
     HomeComponent,
     RegisterComponent,
-    MyBooksComponent,
     BookListComponent,
-    UserNavbarComponent,
     AdminNavbarComponent,
     AboutUsComponent,
     BookCardComponent,
     IssuedBookComponent,
     SideNavbarComponent,
+    UserComponent,
+    UserNavbarComponent,
+    MybooksComponent,
+    AddCategoryComponent,
+    UserListComponent,
 
 
-
-    
-  
-    
   ],
   imports: [
     BrowserModule,
@@ -107,11 +106,7 @@ schemas: [CUSTOM_ELEMENTS_SCHEMA]
     AgGridModule,
     PerfectScrollbarModule,
     MatSidenavModule,
-    MatListModule,
-
-   
-    
-        
+    MatListModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

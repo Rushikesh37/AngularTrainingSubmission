@@ -1,0 +1,25 @@
+
+
+<div mat-content class="category">
+    <mat-card>
+   <h1 mat-title><b>Add BookCategory</b></h1>
+    <form [formGroup]= "categoryForm">
+
+    <mat-form-field appearance="outline">
+        <mat-label>Add New Category </mat-label>
+        <input matInput formControlName="CategoryName" placeholder="type something....">
+      </mat-form-field>
+  
+    </form>
+
+    <div >
+        
+        <button mat-raised-button color="primary" (click)= "addCategory()" >{{actionbtn}}</button>
+      
+    </div>
+    <img src="https://i.pinimg.com/736x/94/e9/17/94e917acaea2b3417e2800989c2d2e06.jpg">
+</mat-card>
+</div>
+
+
+

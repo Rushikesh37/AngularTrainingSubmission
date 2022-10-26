@@ -38,7 +38,7 @@ export class RequestBookComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['bookName', 'category', 'authorName', 'action'];
+  displayedColumns: string[] = ['requestId','bookId','bookName', 'userId', 'userName','requestDate', 'action'];
   now: any;
   // dataSources!: MatTableDataSource<any>;
   //date seprate
@@ -46,10 +46,10 @@ export class RequestBookComponent implements OnInit {
   ngOnInit(): void {
     this.issuedForm = this.formbuilder.group({
       // id:['',Validators.required],
-      bookName: ['', Validators.required],
-      category: ['', Validators.required],
-      authorName: ['', Validators.required],
-      date: [this.date],
+      
+      bookId: ['', Validators.required],
+      userId: ['', Validators.required],
+      issueDate: [this.date],
       returnDate: [this.returndt]
     })
     this.getAllRequests();
@@ -65,7 +65,7 @@ export class RequestBookComponent implements OnInit {
   }
   //------------------------------- back button--------------------------------
   goBack() {
-    this.router.navigateByUrl('admin')
+    this.router.navigateByUrl('admin/booklist')
   }
   //  -------------------------------------------------
   getAllRequests() {
@@ -88,9 +88,10 @@ export class RequestBookComponent implements OnInit {
   accept(data: any) {
     // console.log(this.issuedForm.value);
     // this.issuedForm.controls['id'].setValue(data.id);
-    this.issuedForm.controls['bookName'].setValue(data.bookName);
-    this.issuedForm.controls['category'].setValue(data.category);
-    this.issuedForm.controls['authorName'].setValue(data.authorName);
+    this.issuedForm.controls['bookId'].setValue(data.bookId);
+    this.issuedForm.controls['userId'].setValue(data.userId);
+    this.issuedForm.controls['issueDate'].setValue(data.issueDate);
+    this.issuedForm.controls['returnDate'].setValue(data.returnDate);
     // this.issuedForm.controls['discription'].setValue(data.discription);
     // this.issuedForm.controls['quantity'].setValue(data.quantity);
     Swal.fire({
@@ -108,14 +109,19 @@ export class RequestBookComponent implements OnInit {
               // this.action = 'check_box';
               // this.color = 'warn'
               Swal.fire('Thank you...', 'Booked Issued succesfully!!!', 'success');
-              console.log(data.id)
+            
 
-              this.bookapi.deleteRequestedBook(data.id).subscribe({
+              this.bookapi.deleteRequestedBook(data.requestId).subscribe({
                 next: (res) => {
+                  
                   this.getAllRequests();
+                  console.log(this.getAllRequests())
                 }
+               
               })
+              
             }
+            
           })
       } else {
         Swal.fire('Thank You...', 'Booked Request Rejected succesfully!!!', 'error')

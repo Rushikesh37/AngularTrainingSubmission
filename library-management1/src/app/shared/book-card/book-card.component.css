@@ -1,7 +1,7 @@
 
 
 .search input[type=text]{
-  width:80%;
+  width:25%;
   height:25px;
   outline: black;
   border-radius:25px;
@@ -36,11 +36,11 @@ h1{
   text-align: center;
   font-size: xx-large;
   font-weight: bolder;
-  margin-top: 45px;
+  margin-top: 30px;
 }
 
 .rows{
-  background-image: url("/assets/images/background.jpg");
+  background-image: url("/src/assets/images/cover-main1.jpg");
   background-position: center;
   background-size: cover;
 

@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
 <div class="rows">
   
   <h1>List Of Books</h1>
@@ -10,17 +10,22 @@
 </div>
 
   <!-- <div class="row" > -->
-   
-  <mat-card-content class="row">
-    <mat-card class="col-md-2" *ngFor="let item of users | filter:term" class="col-md-2" fxLayoutGap="5px" style="margin-left: 5px ;">
+   <form [formGroup]="Form">
+  <mat-card-content class="row" >
+    <mat-card class="col-md-2" *ngFor="let item of books | filter:term" class="col-md-2" fxLayoutGap="5px" style="margin-left: 5px ;">
         
     
-    
-          <mat-card-title>{{item.bookName}}</mat-card-title>
+      
+         
+          <mat-card-title >{{item.bookName}}</mat-card-title>
           
           <img mat-card-lg-image src={{item.image}} >
           <mat-card-content>
             {{item.Author}}
+          </mat-card-content>
+
+          <mat-card-content>
+            <span>bookId:-</span>{{item.bookId}}
           </mat-card-content>
   
           <mat-card-content>
@@ -28,7 +33,7 @@
           </mat-card-content>
   
           <mat-card-content>
-            <span>Quantity:-</span>{{item.quantity }}   
+            <span>Quantity:-</span>{{item.bookQuantity }}   
           </mat-card-content>
 
 
@@ -36,17 +41,12 @@
            
 
             <button mat-icon-button  color="primary" style="margin-right:50px">
-              Request <mat-icon>send</mat-icon>
+              Request <mat-icon (click)="sendRequest(item)">send</mat-icon>
             </button>
-            <button mat-icon-button  color="warn">
-              Cancel <mat-icon>cancel</mat-icon>
-            </button>
-
+          
           </mat-card-content>
-       
-           <!-- <span style="color: red;">Return Date:-</span>{{tomorrow | date: 'dd/MM/yyyy'}} -->
-          <!-- <button mat-raised-button color="accient" >Like </button>
-          <button mat-raised-button color="primary" style="margin: 20px">share</button> -->
+    
         
         </mat-card>
     </mat-card-content>
+  </form>

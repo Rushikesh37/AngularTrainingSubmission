@@ -1,70 +1,64 @@
-import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
-import { UserServiceService } from '../../../services/user-service.service';
+import { ColDef } from 'ag-grid-community';
+import { UserServiceService } from 'src/app/services/user-service.service';
 
 @Component({
-  selector: 'app-my-books',
-  templateUrl: './myBooks.component.html',
-  styleUrls: ['./myBooks.component.css']
+  selector: 'app-mybooks',
+  templateUrl: './mybooks.component.html',
+  styleUrls: ['./mybooks.component.css']
 })
-export class MyBooksComponent implements OnInit {
+export class MybooksComponent implements OnInit {
+  
   counDowndate:any
   myBookForm !: FormGroup;
   dataSource!: MatTableDataSource<any>;
   actionbtn: string = "My Books";
   newdate:any;
-crDate = new Date();
-  displayedColumns: string[] = [ 'bookName', 'category', 'authorName','date','action'];
+  crDate = new Date();
+  displayedColumns: string[] = [ 'issuedId','bookName', 'issueDate', 'returnDate','action'];
 
-  constructor(private getMybook:UserServiceService) {}
+  constructor(private formbuilder: FormBuilder,private getMybook:UserServiceService) { }
 
   ngOnInit(): void {
-    this.myBookList();
-    console.log(this.seprateCrDate());
-  }
-  counter:any;
-  public dateReminder(rtData:any){
-    return rtData.getTime();
-  }
-  // public dateReminder(rtdata:any){
     
-    // let returndt = this.seprateDate(rtdata).split(":");
-    // let currentdt = this.seprateDate(issudate).split(":");
+    this.myBookForm = this.formbuilder.group({
+      // id:['',Validators.required],
 
-    // let diffYear = (Number(returndt[0])-Number(currentdt[0]));
-    // let diffMonth = (Number(returndt[1])-Number(currentdt[1]));
-    // let diffDay = Math.abs(Number(returndt[2])-Number(currentdt[2]));
-    // let diffHour = Math.abs(Number(returndt[3])-Number(currentdt[3]));
-    // let diffMinute = (Number(returndt[4])-Number(currentdt[4]));
-    // let diffSecond = (Number(returndt[5])-Number(currentdt[5]));
-    // let expire = (diffDay+'D '+diffHour+'Hr '+diffMinute+'Min '+diffSecond)
-   //return (diffDay+'D '+diffHour+'Hr '+diffMinute+'Min '+diffSecond);
-    // return crDate;
-    // let x=setInterval(()=>{ 
-    //   let crDate = new Date().getDate();
-    //   var distance=rtdata-crDate;
-    //   var days=Math.floor(distance/(1000*60*60*24));
-    //   var hours=Math.floor(distance% (1000*60*60*24))/(1000*60*60)
-    //   var minutes =Math.floor((distance%(1000*60*60))/(1000*60))
-    //   var seconds=Math.floor((distance%(1000*60))/1000);
-    //   this.counter=days +"d"+hours+"h"+minutes+"m"+seconds+"s"
-    //   if(distance<0){
-    //     clearInterval(x);
-    //     this.counter="Expired"
-    //   }
-    // })
-// return this.counter;
+      issuedId: ['', Validators.required],
+      bookName: ['', Validators.required],   
+      issueDate: ['', Validators.required],
+      returnDate: ['', Validators.required],
+      action: ['', Validators.required],
+    })
+    this.myBookList();
     
-//   }
+  }
+
+  rowData: any;
+  data:any;
+  defaultColDef:ColDef={sortable:true, filter:true}
+
+  //Dynamic implementation
+  colDefs = [
+    {headerName: 'Issued Id', field: 'issuedId', sortable: true, filter: true},
+    {headerName: 'Book Name', field: 'bookName', sortable: true, filter: true},
+    {headerName: 'Issued Date', field: 'issueDate', sortable: true, filter: true},
+    {headerName: 'Return Date', field: 'returnDate', sortable: true, filter: true},
+    {headerName: 'Return Book', field: 'action', sortable: true, filter: true},
+  
+];
+  counter:any;
+
   myBookList(){
-    console.log(this.getMybook.getIssuedBook);
+   
     this.getMybook.getIssuedBook()
     .subscribe({
       next: (res) => {
-       console.log(res,'dkjksdj')
+       this.data=res;
        this.dataSource = new MatTableDataSource(res);
+       console.log(res)
       },
         error: (err) => {
           alert("Error while fetching the data")
@@ -72,14 +66,6 @@ crDate = new Date();
         }
       });
   }
-  // public extendDate(date:any){
-  //   let data = date.split("T");
-  //   let speratedt = data[0].split("-");
-  //   let year = speratedt[0];
-  //   let month = speratedt[1];
-  //   let dd = speratedt[2];
-  //   return (year+'-'+month+'-'+(Number(dd)+3));
-  // }
   public seprateDate(data:any){
     data = data.split("T");
     let rtdate = data[0].split("-");
@@ -102,5 +88,8 @@ crDate = new Date();
     let second = data.getSeconds();
     return (year+':'+month+':'+day+':'+hour+':'+minute+':'+second)
   }
+  
   }
+
+
 

@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { ColDef } from 'ag-grid-community';
 import { NgToastService } from 'ng-angular-popup';
 import { BookapiService } from 'src/app/services/bookapi.service';
 
@@ -20,16 +21,36 @@ export class IssuedBookComponent implements OnInit {
   dataSource!: MatTableDataSource<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['bookName', 'category', 'authorName', 'returnDate'];
+  displayedColumns: string[] = ['issuedId','bookName', 'userName', 'issueDate','returnDate'];
   now: any;
+  data:any;
   constructor(private formbuilder: FormBuilder, private router: Router, private bookapi: BookapiService, private toast: NgToastService) { }
+
+  rowData: any;
+  defaultColDef:ColDef={sortable:true, filter:true}
+
+  //Dynamic implementation
+  colDefs = [
+    {headerName: 'Issued Id', field: 'issuedId', sortable: true, filter: true},
+    {headerName: 'Book Name', field: 'bookName', sortable: true, filter: true},
+    {headerName: 'User Name', field: 'userName', sortable: true, filter: true},
+    {headerName: 'Issued Date', field: 'issueDate', sortable: true, filter: true},
+    {headerName: 'Return Date', field: 'returnDate', sortable: true, filter: true}
+  
+];
+
+
+
+
 
   ngOnInit(): void {
     this.issuedForm = this.formbuilder.group({
       // id:['',Validators.required],
-      bookName: ['', Validators.required],
-      category: ['', Validators.required],
-      authorName: ['', Validators.required],
+
+      issuedId: ['', Validators.required],
+      bookName: ['', Validators.required],   
+      userName: ['', Validators.required],
+      issueDate: ['', Validators.required],
       returnDate: ['', Validators.required]
 
     })
@@ -51,7 +72,9 @@ export class IssuedBookComponent implements OnInit {
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort
+
           console.log(res)
+          this.data=res;
           // this.no = res.length;
         },
         error: (err) => {
@@ -61,7 +84,9 @@ export class IssuedBookComponent implements OnInit {
       })
   }
 
+
+
   goBack() {
-    this.router.navigateByUrl('admin')
+    this.router.navigateByUrl('admin/booklist')
   }
 }

@@ -15,7 +15,7 @@
     }
     mat-form-field{
       width: 100%;
-      height: 50%;
+      height: 20px;
     }
     mat-card-title{
       justify-content: center;

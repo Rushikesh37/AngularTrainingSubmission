@@ -3,17 +3,19 @@
   }
 
   mat-card-title{
-    margin-left: 100%;
+    margin-left: 100px;
+   
   }
 
   .example-card{
     height: 270px;
-    width: 225px;
+    width: 300px;
   }
 
   .example-full-width{
     height: 20px;
     font-size: 20px;
+    width: 250px;
   }
 
   a:hover{

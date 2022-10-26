@@ -1,104 +1,42 @@
-<app-user-navbar ></app-user-navbar>
+<mat-sidenav-container class="container">
+    <mat-sidenav #sidebar mode="side" opened>
+      <app-user-navbar></app-user-navbar>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <div class="toolbar">
+                <mat-toolbar >
+                    <a
+                    (click)="showsSidebar = !showsSidebar"
+                    class="toggle-btn">
+                    <!--Shows Close Icon on button when sidebar is open and if hovering-->
+                    <!-- I've added an additional class 'close' to this so that I can differentiate between icons and keep the other `menu` icon visible when the menu is closed -->
+                    <span
+                      *ngIf="showsSidebar" (click)="sidebar.close()"
+                      class="material-icons close">
+                      arrow_back_ios
+                    </span>
+              
+                    <!-- Shows Menu Icon on button when sidebar is closed-->
+                    <span
+                      *ngIf="!showsSidebar" (click)="sidebar.open()"
+                      class="material-icons">
+                      menu
+                    </span>
+                  </a>
+                      <span style="margin-left: -8rem;"> Book House<mat-icon>library_books</mat-icon></span>
+                      <span class="example-spacer"></span>
+                  
+                      <!-- <a mat-button routerLink="" ><mat-icon>account_circle</mat-icon></a> -->
+                      <!-- <a mat-button routerLink="" ><mat-icon>notifications</mat-icon>Notification</a> -->
+                      <a mat-button routerLink="" ><mat-icon>logout</mat-icon>LogOut</a>
+                </mat-toolbar>
+            </div>
+            <div class="main">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
 
-
-<button class="mybook"  mat-icon-button color="primary" matBadge="{{no}}"   matBadgePosition="after" matBadgeColor="warn" (click)="myBooks()">
-  <mat-icon  >photo_album</mat-icon>My Books 
-</button>
-<h1><b>List Of Books</b></h1>
-<div class="container">
-    <div style="margin-top: 10px;">
-      <form [formGroup]= "requestForm">
-        <mat-form-field appearance="standard">
-            <mat-label>Search here....</mat-label>
-            <input matInput (keyup)="applyFilter($event)" placeholder="Search Book by id,name,category" #input>
-          </mat-form-field> 
-          <div class="mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource" matSort>
-          
-              <!-- ID Column -->
-              <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-              </ng-container>
-          
-              <!-- Progress Column -->
-              <ng-container matColumnDef="bookName">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> BooKName </th>
-                <td mat-cell *matCellDef="let row"> {{row.bookName}} </td>
-              </ng-container>
-          
-              <!-- Name Column -->
-              <ng-container matColumnDef="category">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
-                <td mat-cell *matCellDef="let row"> {{row.category}} </td>
-              </ng-container>
-          
-              <!-- Fruit Column -->
-              <ng-container matColumnDef="authorName">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Authorname </th>
-                <td mat-cell *matCellDef="let row"> {{row.authorName}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="discription">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> discription </th>
-                <td mat-cell *matCellDef="let row"> {{row.discription}} </td>
-              </ng-container>
-
-              <ng-container matColumnDef="quantity">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> quantity </th>
-                <td mat-cell *matCellDef="let row"> {{row.quantity}} </td>
-              </ng-container>
-   
-              <ng-container matColumnDef="action">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
-                <td mat-cell *matCellDef= "let row">
-                    <button mat-icon-button (click)= " requestBook(row)" color="primary">
-                      Request <mat-icon>send</mat-icon>
-                    </button>
-                </td>
-
-              </ng-container>
-              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          
-              <!-- Row shown when there is no matching data. -->
-              <tr class="mat-row" *matNoDataRow>
-                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-              </tr>
-            </table> 
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
-          </div>
-        </form>
-    </div>
-</div>
-
-
-<!-- ..................................AG Grid.................... -->
-<ag-grid-angular
-
-style="width:90%; height: 250px; margin:auto;margin-top: 50px;"
-
-class="ag-theme-alpine-dark"
-
-[rowData]="data"
-
-[columnDefs]="colDefs"
-
-[defaultColDef]="defaultColDef"
-
-[pagination]="true"
-
-[paginationPageSize]="8"
-
-[animateRows]="true"
->
-
-</ag-grid-angular>
-
-
-
-
-
-
-
-
+<!-- (click)= "logOut()"Hi {{name}} -->
