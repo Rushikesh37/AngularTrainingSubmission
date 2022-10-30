@@ -1,27 +1,22 @@
 .example-container .mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+  margin-left: 8px;
+}
 
-  mat-card-title{
-    margin-left: 100px;
-   
-  }
+mat-card-title {
+  margin-left: 100px;
+}
 
-  .example-card{
-    height: 270px;
-    width: 300px;
-  }
+.example-card {
+  height: 270px;
+  width: 300px;
+}
 
-  .example-full-width{
-    height: 20px;
-    font-size: 20px;
-    width: 250px;
-  }
+.example-full-width {
+  height: 20px;
+  font-size: 20px;
+  width: 250px;
+}
 
-  a:hover{
-    color: red;
-  }
-
-  
-
-  
+a:hover {
+  color: red;
+}

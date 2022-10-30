@@ -1,52 +1,68 @@
-
 <h1 mat-dialog-title>Add Books Form</h1>
 <div mat-dialog-content>
-    <form [formGroup]= "bookForm">
+  <form [formGroup]="bookForm">
+
     <!-- <mat-form-field appearance="outline">
-        <mat-label>ID </mat-label>
-        <input matInput formControlName="id" type="number" placeholder="id">
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field> -->
+      <mat-label>Book Id </mat-label>
+      <input matInput formControlName="bookId" placeholder="BookId" />
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field> -->
+
     <mat-form-field appearance="outline">
-        <mat-label>Name of book </mat-label>
-        <input matInput formControlName="bookName" placeholder="Bookname">
-        <mat-hint>Hint</mat-hint>
-      </mat-form-field>
+      <mat-label>Name of book </mat-label>
+      <input matInput formControlName="bookName" placeholder="Bookname" />
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label>Author Name </mat-label>
+      <input matInput formControlName="authorName" placeholder="Authorname" />
+    </mat-form-field>
 
+    <mat-form-field appearance="outline">
+      <mat-label>Quantity</mat-label>
+      <input
+        matInput
+        formControlName="bookQuantity"
+        type="number"
+        placeholder="quantity"/>
+    </mat-form-field>
 
-      <mat-form-field appearance="outline">
-        <mat-label>Author Name </mat-label>
-        <input matInput formControlName="authorName" placeholder="Authorname">
-      
-      </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Category </mat-label>
+      <mat-select formControlName="categoryId" placeholder="Category">
+        <mat-option *ngFor="let b of bookCategory" [value]="b.categoryId">
+          {{ b.categoryName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-
-      <mat-form-field appearance="outline">
-        <mat-label>Quantity</mat-label>
-        <input matInput formControlName="bookQuantity" type="number" placeholder="quantity">
-       
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-        <mat-label >Category </mat-label>
-        <mat-select formControlName="categoryId"  placeholder="Category" >
-            <mat-option *ngFor="let b of bookCategory" [value]="b.categoryId" >{{b.categoryName}}</mat-option>
-         
-        </mat-select>
-      
-      </mat-form-field>
-
-      <mat-form-field appearance="outline">
-                <input type="text" matInput placeholder="Add image url" formControlName="image">   
-                <mat-error>
-                    <span *ngIf="!bookForm.get('image')?.valid && bookForm.get('image')?.touched">image Required</span>
-                </mat-error>
-            </mat-form-field>
-    </form>
+    <mat-form-field appearance="outline">
+      <input
+        type="text"
+        matInput
+        placeholder="Add image url"
+        formControlName="image"/>
+      <mat-error>
+        <span
+          *ngIf="
+            !bookForm.get('image')?.valid && bookForm.get('image')?.touched">
+            image Required
+        </span >
+      </mat-error>
+    </mat-form-field>
+  </form>
 </div>
 
 <div mat-dialog-actions [align]="'end'">
-    <button mat-raised-button color="primary" (click)= "addBook()" mat-dialog-close>{{actionbtn}}</button>
-    <button mat-raised-button color="warn" value="cancel" mat-dialog-close>Cancel</button>
+  <button
+    mat-raised-button
+    color="primary"
+    (click)="addBook()"
+    mat-dialog-close >
+    {{ actionbtn }}
+  </button>
+  <button mat-raised-button color="warn" value="cancel" mat-dialog-close>
+    Cancel
+  </button>
 </div>

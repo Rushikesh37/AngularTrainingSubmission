@@ -10,20 +10,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { pipe } from 'rxjs';
 
-
-
 @Component({
   selector: 'app-request-book',
   templateUrl: './requests.component.html',
-  styleUrls: ['./requests.component.css']
+  styleUrls: ['./requests.component.css'],
 })
 export class RequestBookComponent implements OnInit {
-  issuedForm !: FormGroup;
+  issuedForm!: FormGroup;
   dataSource!: MatTableDataSource<any>;
-  actionbtn: string = "Book Request List";
-  demo: any
-  action = 'done'
-  color = 'success'
+  actionbtn: string = 'Book Request List';
+  demo: any;
+  action = 'done';
+  color = 'success';
   currentDate = new Date();
   day = this.currentDate.getDate();
   month = this.currentDate.getMonth() + 1;
@@ -32,26 +30,47 @@ export class RequestBookComponent implements OnInit {
   minute = this.currentDate.getMinutes();
   seconds = this.currentDate.getSeconds();
   // returndt = new Date(`${this.month} ${this.day+3},  ${this.year} ${this.hour}:${this.minute}+${this.seconds}`).getDate();
-  returndt = this.day + 5 + "/" + this.month + "/" + this.year
+  returndt = this.day + 5 + '/' + this.month + '/' + this.year;
   //returnDate = (this.year+'-'+this.month+'-'+(Number(this.day)+3)+'T'+this.hour+':'+this.minute+':'+this.seconds)
-  date = (this.year + '-' + this.month + '-' + (this.day) + 'T' + this.hour + ':' + this.minute + ':' + this.seconds)
+  date =
+    this.year +
+    '-' +
+    this.month +
+    '-' +
+    this.day +
+    'T' +
+    this.hour +
+    ':' +
+    this.minute +
+    ':' +
+    this.seconds;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  displayedColumns: string[] = ['requestId','bookId','bookName', 'userId', 'userName','requestDate', 'action'];
+  displayedColumns: string[] = [
+    'requestId',
+    'bookId',
+    'bookName',
+    'userName',
+    'requestDate',
+    'action',
+  ];
   now: any;
-  // dataSources!: MatTableDataSource<any>;
-  //date seprate
-  constructor(private bookapi: BookapiService, private toast: NgToastService, private router: Router, private formbuilder: FormBuilder) { }
+  userId = localStorage.getItem('userId');
+
+  constructor(
+    private bookapi: BookapiService,
+    private toast: NgToastService,
+    private router: Router,
+    private formbuilder: FormBuilder
+  ) {}
   ngOnInit(): void {
     this.issuedForm = this.formbuilder.group({
-      // id:['',Validators.required],
-      
       bookId: ['', Validators.required],
       userId: ['', Validators.required],
       issueDate: [this.date],
-      returnDate: [this.returndt]
-    })
+      returnDate: [this.returndt],
+    });
     this.getAllRequests();
     console.log(this.returndt);
   }
@@ -63,91 +82,63 @@ export class RequestBookComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-  //------------------------------- back button--------------------------------
+
   goBack() {
-    this.router.navigateByUrl('admin/booklist')
+    this.router.navigateByUrl('admin/booklist');
   }
-  //  -------------------------------------------------
+
   getAllRequests() {
-    // this.actionbtn = "Request List"
-    this.bookapi.getRequest()
-      .subscribe({
-        next: (res) => {
-          this.dataSource = new MatTableDataSource(res);
-          this.dataSource.paginator = this.paginator;
-          this.dataSource.sort = this.sort
-          console.log(res)
-          // this.no = res.length;
-        },
-        error: (err) => {
-          // alert("Error while fetching the data")
-          this.toast.success({ detail: "Error while fetching the dat", duration: 5000 });
-        }
-      })
+    this.bookapi.getRequest().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        console.log(res);
+      },
+      error: (err) => {
+        this.toast.success({
+          detail: 'Error while fetching the dat',
+          duration: 5000,
+        });
+      },
+    });
   }
   accept(data: any) {
-    // console.log(this.issuedForm.value);
-    // this.issuedForm.controls['id'].setValue(data.id);
     this.issuedForm.controls['bookId'].setValue(data.bookId);
-    this.issuedForm.controls['userId'].setValue(data.userId);
+    this.issuedForm.controls['userId'].setValue(this.userId);
     this.issuedForm.controls['issueDate'].setValue(data.issueDate);
     this.issuedForm.controls['returnDate'].setValue(data.returnDate);
-    // this.issuedForm.controls['discription'].setValue(data.discription);
-    // this.issuedForm.controls['quantity'].setValue(data.quantity);
     Swal.fire({
       title: 'Are you want to Issued Book?',
       text: 'Select Your Choice',
       icon: 'question',
       showCancelButton: true,
       confirmButtonText: 'Issued',
-      cancelButtonText: 'Reject'
+      cancelButtonText: 'Reject',
     }).then((result) => {
       if (result.value) {
-        this.bookapi.issuedBook(this.issuedForm.value)
-          .subscribe({
-            next: (res) => {
-              // this.action = 'check_box';
-              // this.color = 'warn'
-              Swal.fire('Thank you...', 'Booked Issued succesfully!!!', 'success');
-            
-
-              this.bookapi.deleteRequestedBook(data.requestId).subscribe({
-                next: (res) => {
-                  
-                  this.getAllRequests();
-                  console.log(this.getAllRequests())
-                }
-               
-              })
-              
-            }
-            
-          })
+        this.bookapi.issuedBook(this.issuedForm.value).subscribe({
+          next: (res) => {
+            Swal.fire(
+              'Thank you...',
+              'Booked Issued succesfully!!!',
+              'success'
+            );
+            this.bookapi.deleteRequestedBook(data.requestId).subscribe({
+              next: (res) => {
+                this.getAllRequests();
+                console.log(this.getAllRequests());
+              },
+            });
+          },
+        });
       } else {
-        Swal.fire('Thank You...', 'Booked Request Rejected succesfully!!!', 'error')
+        Swal.fire(
+          'Thank You...',
+          'Booked Request Rejected succesfully!!!',
+          'error'
+        );
       }
-    })
-    //  console.log(data);
+    });
   }
 }
-// **********************************Date *****************************//
-
-
-// *********************************** using toaster service ***********************************
-    // this.bookapi.issuedBook(this.issuedForm.value)
-    // .subscribe({next:(res)=>{
-    //   this.action='check_box';
-    //   this.color='warn'
-
-    // alert("Book Accepted")   ...........this is simple alert..............
-
-
-    // this.toast.success({detail:"Request Book Accepted!",duration:5000}); ............alert using toast service.......................
-
-    // }
-
-    // })
-// **************************************************************************************************
-
-
-

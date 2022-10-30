@@ -16,37 +16,35 @@ import { MybooksComponent } from './components/user/mybooks/mybooks.component';
 import { AddCategoryComponent } from './components/admin/add-category/add-category.component';
 import { UserListComponent } from './shared/user-list/user-list.component';
 
-
 const routes: Routes = [
-  {path:'',component:HomeComponent},
-{path:'home',component:HomeComponent,canActivate:[AuthguardGuard]},
-{path:'contact',component:AboutUsComponent},
-{ path: 'login', component: LoginComponent,},
-{ path: 'bookcard', component: BookCardComponent},
-{path:'user',component:UserComponent,children:[
-  {path:'booklist',component:BookCardComponent},
-  {path:'mybooks',component:MybooksComponent}
-]},
-{ path: 'admin', component: AdminComponent,canActivate:[AuthguardGuard],children:[
-  {path:'booklist',component:BookListComponent},
-  {path:'userlist',component:UserListComponent},
-  {path:'add',component:AdbookdialogComponent},
-  {path:'addcategory', component:AddCategoryComponent},
-  {path:'issuedbooks',component:IssuedBookComponent},
-  {path:'requestbooks',component:RequestBookComponent},
-  {path:'issuedlist',component:IssuedBookComponent}
-]},
-{
-   path:'add', component:AdbookdialogComponent
-},
-
-{path:'bookcard',component:BookCardComponent},
-
-
+  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthguardGuard] },
+  { path: 'contact', component: AboutUsComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'bookcard', component: BookCardComponent },
+  {path: 'user',component: UserComponent,
+    children: [
+      { path: 'booklist', component: BookCardComponent },
+      { path: 'mybooks', component: MybooksComponent },
+    ],
+  },
+  {path: 'admin', component: AdminComponent,canActivate: [AuthguardGuard],
+    children: [
+      { path: 'booklist', component: BookListComponent },
+      { path: 'userlist', component: UserListComponent },
+      { path: 'add', component: AdbookdialogComponent },
+      { path: 'addcategory', component: AddCategoryComponent },
+      { path: 'issuedbooks', component: IssuedBookComponent },
+      { path: 'requestbooks', component: RequestBookComponent },
+      { path: 'issuedlist', component: IssuedBookComponent },
+    ],
+  },
+  { path: 'add',component: AdbookdialogComponent,},
+  { path: 'bookcard', component: BookCardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

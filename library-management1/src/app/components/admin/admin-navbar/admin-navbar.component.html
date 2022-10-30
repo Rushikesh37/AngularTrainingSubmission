@@ -1,49 +1,45 @@
 <div class="navbar">
-    <img class="avatar mat-elevation-z4 image" src="https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png" />
-    
-    <mat-icon style="margin-bottom: 2rem;">edit </mat-icon>
-    <h4 class="name">Hi {{name}}(Admin)</h4>
-  
-    <p><mat-icon>widgets</mat-icon>Admin Dashboard</p>
-    <button mat-button class="menu-button" routerLink="booklist">
+  <img
+    class="avatar mat-elevation-z4 image"
+    src="https://www.pngmart.com/files/21/Admin-Profile-Vector-PNG-Clipart.png"
+  />
+
+  <mat-icon style="margin-bottom: 2rem">edit </mat-icon>
+  <h4 class="name">Hi {{ name }}(Admin)</h4>
+
+  <p><mat-icon>widgets</mat-icon>Admin Dashboard</p>
+  <button mat-button class="menu-button" routerLink="booklist">
     <mat-icon>book</mat-icon>
     <span>List Of Books</span>
-    </button>
+  </button>
 
-    <button mat-button class="menu-button"  routerLink="addcategory" >
-        <mat-icon>add</mat-icon>
-        <span>Add Category</span>
-    </button>
+  <button mat-button class="menu-button" routerLink="addcategory">
+    <mat-icon>add</mat-icon>
+    <span>Add Category</span>
+  </button>
 
-    <button mat-button class="menu-button"  (click)="addBook()"  >
-        <mat-icon>library_add</mat-icon>
-        <span>Add Books</span>
-    </button>
+  <button mat-button class="menu-button" (click)="addBook()">
+    <mat-icon>library_add</mat-icon>
+    <span>Add Books</span>
+  </button>
 
-    <button mat-button class="menu-button" routerLink="requestbooks">
-        <mat-icon>pending_actions</mat-icon>
-        <span>Requested Books</span>
-        </button>
+  <button mat-button class="menu-button" routerLink="requestbooks" >
+    <mat-icon>pending_actions</mat-icon>
+    <span  matBadge="{{reqCount}}" matBadgeOverlap="false" class="demo-section" matBadgeColor="warn">Requested Books</span>
+  </button>
 
-    <button mat-button class="menu-button" routerLink="issuedlist">     
-        <mat-icon>mark_chat_unread</mat-icon>
-         <span>Issued Books</span>
-    </button>
+  <button mat-button class="menu-button" routerLink="issuedlist">
+    <mat-icon>mark_chat_unread</mat-icon>
+    <span>Issued Books</span>
+  </button>
 
-    
-    <button mat-button class="menu-button" routerLink="userlist">     
-        <mat-icon>people_outline</mat-icon>
-         <span>User List</span>
-    </button>
+  <button mat-button class="menu-button" routerLink="userlist">
+    <mat-icon>people_outline</mat-icon>
+    <span>User List</span>
+  </button>
 
-
-    <button mat-button class="menu-button" routerLink="/history">     
-        <mat-icon>history</mat-icon>
-         <span>History</span>
-    </button>
-
- 
-
- 
+  <button mat-button class="menu-button" routerLink="">
+    <mat-icon>logout</mat-icon>
+    <span>LogOut</span>
+  </button>
 </div>
-<!-- matBadge="{{no}}" -->

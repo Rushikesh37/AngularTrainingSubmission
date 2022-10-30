@@ -16,94 +16,120 @@ import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
-  styleUrls: ['./book-list.component.css']
+  styleUrls: ['./book-list.component.css'],
 })
 export class BookListComponent implements OnInit {
-
-  defaultColDef:ColDef={sortable:true, filter:true}
-
-
-
-  //Dynamic implementation
-
-
+  defaultColDef: ColDef = { sortable: true, filter: true };
+  rowData: any;
 
   colDefs = [
-    {headerName: 'bookId', field: 'bookId', sortable: true, filter: true},
-    {headerName: 'Book Name', field: 'bookName', sortable: true, filter: true},
-    {headerName: 'Author Name', field: 'authorName', sortable: true, filter: true},
-    {headerName: 'categoryName', field: 'categoryName', sortable: true, filter: true},
-    {headerName: 'Quantity', field: 'bookQuantity', sortable: true, filter: true},
-    {headerName: 'Action', field: 'action', sortable: true, filter: true}
-];
-
-
-rowData: any;
-
-
+    { headerName: 'bookId', field: 'bookId', sortable: true, filter: true },
+    {
+      headerName: 'Book Name',
+      field: 'bookName',
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: 'Author Name',
+      field: 'authorName',
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: 'categoryName',
+      field: 'categoryName',
+      sortable: true,
+      filter: true,
+    },
+    {
+      headerName: 'Quantity',
+      field: 'bookQuantity',
+      sortable: true,
+      filter: true,
+    },
+    { headerName: 'Action', field: 'action', sortable: true, filter: true },
+  ];
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = ['bookId', 'bookName',  'authorName','bookQuantity','categoryName','action'];
+  displayedColumns: string[] = [
+    'bookId',
+    'bookName',
+    'authorName',
+    'bookQuantity',
+    'categoryName',
+    'action',
+  ];
   dataSource!: MatTableDataSource<any>;
-  data:any
+  data: any;
 
-  actionbtn:string="List Of Books";
+  actionbtn: string = 'List Of Books';
 
-  constructor(private bookapi:BookapiService,private router:Router,private toast :NgToastService,private http: HttpClient,public dialog: MatDialog) { }
+  constructor(
+    private bookapi: BookapiService,
+    private router: Router,
+    private toast: NgToastService,
+    private http: HttpClient,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
-   
     this.getAllBooks();
   }
-     getAllBooks(){
-        this.bookapi.getBook().subscribe({
-        next:(res)=>{
-        this.dataSource=new MatTableDataSource(res);
-        this.dataSource.paginator=this.paginator;
-        this.dataSource.sort=this.sort
+  getAllBooks() {
+    this.bookapi.getBook().subscribe({
+      next: (res) => {
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
         console.log(res.length);
-        this.data=res;
-       
-       
+        this.data = res;
       },
-      error:(err)=>{
-        // alert("Error while fetching the data")
-        this.toast.error({detail:"Error While fetching the data!", summary:"something went wrong",duration:5000});
-      }
-    })
+      error: (err) => {
+        this.toast.error({
+          detail: 'Error While fetching the data!',
+          summary: 'something went wrong',
+          duration: 5000,
+        });
+      },
+    });
   }
 
   editBook(row: any) {
- 
-    this.dialog.open(AdbookdialogComponent, {
-      width: '30%',
-      data: row
-      
-    }).afterClosed().subscribe((val: string) => {
-      if (val === 'update') {
-        this.getAllBooks();
-        
-      }
-    })
-    
-    
+    console.log(row)
+    this.dialog
+      .open(AdbookdialogComponent, {
+        width: '30%',
+        data: row,
+      })
+      .afterClosed()
+      .subscribe((val: string) => {
+        if (val === 'update') {
+          this.getAllBooks();
+        }
+      });
   }
 
   deleteBook(bookId: number) {
     this.bookapi.deleteBook(bookId).subscribe({
       next: (res) => {
-        // alert("Book deleted Successfully")
-        this.toast.success({ detail: "Book deleted Successfully", summary: "one book deleted", duration: 5000 });
+        this.toast.success({
+          detail: 'Book deleted Successfully',
+          summary: 'one book deleted',
+          duration: 5000,
+        });
         this.getAllBooks();
       },
       error: () => {
-        // alert("Error While deleting the book!")
-        this.toast.error({ detail: "Error While deleting the book!", summary: "something went wrong", duration: 5000 });
-      }
-    })
-
+        this.toast.error({
+          detail: 'Error While deleting the book!',
+          summary: 'something went wrong',
+          duration: 5000,
+        });
+      },
+    });
   }
 
   applyFilter(event: Event) {
@@ -113,16 +139,4 @@ rowData: any;
       this.dataSource.paginator.firstPage();
     }
   }
-
-
-  
- }
-
-
-
-  
- 
-
-
- 
-
+}

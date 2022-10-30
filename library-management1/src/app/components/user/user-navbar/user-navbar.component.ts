@@ -3,13 +3,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-user-navbar',
   templateUrl: './user-navbar.component.html',
-  styleUrls: ['./user-navbar.component.css']
+  styleUrls: ['./user-navbar.component.css'],
 })
 export class UserNavbarComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  name = localStorage.getItem('userName');
+  
+  ngOnInit(): void {}
 }

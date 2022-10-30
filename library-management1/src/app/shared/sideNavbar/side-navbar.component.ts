@@ -12,7 +12,4 @@ export class SideNavbarComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  
-
 }

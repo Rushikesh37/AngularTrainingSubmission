@@ -13,24 +13,31 @@ import { AdbookdialogComponent } from '../addBook/add.component';
 })
 export class AdminNavbarComponent implements OnInit {
   name = localStorage.getItem('adminName');
+  reqCount:number;
 
   constructor(public dialog: MatDialog, private bookapi: BookapiService, private router: Router) { }
 
   ngOnInit(): void {
+
+    this.getReqCount();
+    
   }
 
-
   addBook(){
-
       this.dialog.open(AdbookdialogComponent, {
         width: '30%'
       }).afterClosed().subscribe(val => {
-       this.router.navigate([BookListComponent])
-    
-       
+       this.router.navigate([BookListComponent])      
       });
     }
 
+    getReqCount(){
+      this.bookapi.getRequest().subscribe(res=>{
+        this.reqCount=res.length;
+
+        console.log(this.reqCount)
+      })
+    }
   }
 
 

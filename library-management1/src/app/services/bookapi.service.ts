@@ -17,13 +17,11 @@ export class BookapiService {
 
   constructor(private http:HttpClient) {}
 
-
   postBook(data:any){
 
     console.log(data)
     return this.http.post<any>(bookList,data)
   }
-
 
   postCategory(data:any){
     return this.http.post<any>(categorylist,data)
@@ -45,7 +43,7 @@ export class BookapiService {
   //   return this.http.get<EmployeeModel[]>(this.apiUrl);
   // }
 
-  putBookData(data:any,id:number){
+  putBookData(id:number,data:any){
     return this.http.put<any>(bookList+id,data);
 }
 
@@ -69,7 +67,5 @@ export class BookapiService {
   deleteRequestedBook(id:number){
     return this.http.delete<any>(requestList +id);
   }
-
-
 }
 

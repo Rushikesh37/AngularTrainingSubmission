@@ -8,26 +8,20 @@
                 <mat-toolbar >
                     <a
                     (click)="showsSidebar = !showsSidebar"
-                    class="toggle-btn">
-                    <!--Shows Close Icon on button when sidebar is open and if hovering-->
-                    <!-- I've added an additional class 'close' to this so that I can differentiate between icons and keep the other `menu` icon visible when the menu is closed -->
+                    class="toggle-btn">              
                     <span
                       *ngIf="showsSidebar" (click)="sidebar.close()"
                       class="material-icons close">
                       arrow_back_ios
-                    </span>
-              
-                    <!-- Shows Menu Icon on button when sidebar is closed-->
+                    </span>            
                     <span
                       *ngIf="!showsSidebar" (click)="sidebar.open()"
                       class="material-icons">
                       menu
                     </span>
-                  </a>
-                  
+                  </a>           
                       <span style="margin-left: -8rem;"> Book House<mat-icon>library_books</mat-icon></span>
-                      <span class="example-spacer"></span>
-                  
+                      <span class="example-spacer"></span>             
                       <a mat-button routerLink="" ><mat-icon>account_circle</mat-icon>Hi {{name}}</a>
                       <a mat-button routerLink="" ><mat-icon>notifications</mat-icon>Notification</a>
                       <a mat-button routerLink="" (click)= "logOut()"><mat-icon>logout</mat-icon>LogOut</a>

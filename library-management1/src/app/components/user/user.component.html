@@ -1,42 +1,35 @@
 <mat-sidenav-container class="container">
-    <mat-sidenav #sidebar mode="side" opened>
-      <app-user-navbar></app-user-navbar>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <div class="content">
-            <div class="toolbar">
-                <mat-toolbar >
-                    <a
-                    (click)="showsSidebar = !showsSidebar"
-                    class="toggle-btn">
-                    <!--Shows Close Icon on button when sidebar is open and if hovering-->
-                    <!-- I've added an additional class 'close' to this so that I can differentiate between icons and keep the other `menu` icon visible when the menu is closed -->
-                    <span
-                      *ngIf="showsSidebar" (click)="sidebar.close()"
-                      class="material-icons close">
-                      arrow_back_ios
-                    </span>
-              
-                    <!-- Shows Menu Icon on button when sidebar is closed-->
-                    <span
-                      *ngIf="!showsSidebar" (click)="sidebar.open()"
-                      class="material-icons">
-                      menu
-                    </span>
-                  </a>
-                      <span style="margin-left: -8rem;"> Book House<mat-icon>library_books</mat-icon></span>
-                      <span class="example-spacer"></span>
-                  
-                      <!-- <a mat-button routerLink="" ><mat-icon>account_circle</mat-icon></a> -->
-                      <!-- <a mat-button routerLink="" ><mat-icon>notifications</mat-icon>Notification</a> -->
-                      <a mat-button routerLink="" ><mat-icon>logout</mat-icon>LogOut</a>
-                </mat-toolbar>
-            </div>
-            <div class="main">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </mat-sidenav-content>
+  <mat-sidenav #sidebar mode="side" opened>
+    <app-user-navbar></app-user-navbar>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <div class="toolbar">
+        <mat-toolbar>
+          <a (click)="showsSidebar = !showsSidebar" class="toggle-btn">
+            <span
+              *ngIf="showsSidebar"
+              (click)="sidebar.close()"
+              class="material-icons close">
+              arrow_back_ios
+            </span>
+            <span
+              *ngIf="!showsSidebar"
+              (click)="sidebar.open()"
+              class="material-icons">
+              menu
+            </span>
+          </a>
+          <span style="margin-left: -8rem">
+            Book House<mat-icon>library_books</mat-icon>
+          </span>
+          <span class="example-spacer"></span>
+          <a mat-button routerLink=""><mat-icon>logout</mat-icon>LogOut</a>
+        </mat-toolbar>
+      </div>
+      <div class="main">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
-
-<!-- (click)= "logOut()"Hi {{name}} -->

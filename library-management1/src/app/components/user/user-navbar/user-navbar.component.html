@@ -1,27 +1,24 @@
 <div class="navbar">
     <img class="avatar mat-elevation-z4 image" src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" />
     <mat-icon style="margin-bottom: 2rem;">edit </mat-icon>
-    <h4 class="name">Hi User</h4>
+    <h4 class="name">Hi {{ name }}(User)</h4>
     
     <p><mat-icon>widgets</mat-icon>User Dashboard</p>
     <button mat-button class="menu-button" routerLink="booklist">
-    <mat-icon>book</mat-icon>
-    <span>List Of Books</span>
+         <mat-icon>book</mat-icon>
+         <span>List Of Books</span>
     </button>
     <button mat-button class="menu-button" routerLink="mybooks">
-    <mat-icon>pending_actions</mat-icon>
-    <span>My Books</span>
+         <mat-icon>pending_actions</mat-icon>
+         <span>My Books</span>
     </button>
- 
-    <button mat-button class="menu-button" routerLink="/history">
-    <mat-icon>history</mat-icon>
-    <span>History</span>
+    
+    <button mat-button class="menu-button" routerLink="">
+        <mat-icon>logout</mat-icon>
+        <span>LogOut</span>
     </button>
-
-
     <button mat-button class="menu-button" routerLink="/setting">
         <mat-icon>settings</mat-icon>
         <span>Settings</span>
-        </button>
- 
+    </button>
 </div>

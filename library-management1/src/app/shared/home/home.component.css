@@ -1,19 +1,18 @@
-.container{
+.container {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   align-items: center;
 }
-img{
-    width: 40%
+img {
+  width: 40%;
 }
-.imageIcon{
-    width: 200px;
-    height: 180px;
-    margin-left: 80px;
+.imageIcon {
+  width: 200px;
+  height: 180px;
+  margin-left: 80px;
 }
-h1{
-    font-size: 34px;
-    margin-left: 60px;
-    font-weight: 600;
+h1 {
+  font-size: 34px;
+  margin-left: 60px;
+  font-weight: 600;
 }
